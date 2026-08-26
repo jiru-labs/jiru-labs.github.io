@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Jiru Labs — Open-source tools and data analysis</title>
+<meta name="description" content="Independent lab in Madrid. Open-source tooling for people who run AI agents on their own infrastructure, and longitudinal analysis of the Madrid residential market.">
+<link rel="canonical" href="https://jirulabs.com/en/">
+<link rel="alternate" hreflang="es" href="https://jirulabs.com/">
+<link rel="alternate" hreflang="en" href="https://jirulabs.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://jirulabs.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Jiru Labs">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Jiru Labs — Open-source tools and data analysis">
+<meta property="og:description" content="Independent lab in Madrid. Open-source tooling for people who run AI agents on their own infrastructure, and longitudinal analysis of the Madrid residential market.">
+<meta property="og:url" content="https://jirulabs.com/en/">
+<meta property="og:image" content="https://jirulabs.com/og-en.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="An independent lab, in Madrid.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jirulabs.com/og-en.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico" sizes="32x32">
+<style>
+  :root {
+    --bg:#fbfaf8; --surface:#ffffff; --ink:#16171a; --ink-soft:#55585f; --ink-faint:#8b8f97;
+    --rule:#e4e2dd; --accent:#1f5f4f; --accent-soft:#eef3f1; --chip:#f2f1ed; --code:#f5f4f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:#101113; --surface:#17181b; --ink:#ecedf0; --ink-soft:#a9adb5; --ink-faint:#74787f;
+      --rule:#2a2c31; --accent:#6fbfa5; --accent-soft:#16211e; --chip:#1e2024; --code:#1b1d21;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:#101113; --surface:#17181b; --ink:#ecedf0; --ink-soft:#a9adb5; --ink-faint:#74787f;
+    --rule:#2a2c31; --accent:#6fbfa5; --accent-soft:#16211e; --chip:#1e2024; --code:#1b1d21;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin:0; background:var(--bg); color:var(--ink);
+    font:400 17px/1.65 ui-serif, Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width:47rem; margin:0 auto; padding:0 1.5rem; }
+
+  header { padding:4.5rem 0 0; }
+  .topbar { display:flex; align-items:baseline; justify-content:space-between; gap:1rem; }
+  .brand {
+    font:600 1.05rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    letter-spacing:.14em; text-transform:uppercase;
+  }
+  .brand span { color:var(--accent); }
+  .lang {
+    font:400 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint); text-decoration:none; letter-spacing:.06em;
+    border-bottom:1px solid var(--rule); padding-bottom:2px;
+  }
+  .lang:hover { color:var(--accent); border-bottom-color:var(--accent); }
+
+  h1 {
+    margin:2.5rem 0 0; font-size:clamp(1.65rem,5vw,2.2rem); line-height:1.24;
+    font-weight:500; letter-spacing:-.012em; max-width:26ch;
+  }
+  .lede { margin:1.15rem 0 0; font-size:1.07rem; color:var(--ink-soft); max-width:62ch; }
+
+  hr.rule { height:1px; background:var(--rule); border:0; margin:3.25rem 0; }
+
+  h2 {
+    font:600 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 1.5rem;
+  }
+  p { margin:0 0 1.1rem; }
+  p:last-child { margin-bottom:0; }
+  .soft { color:var(--ink-soft); }
+
+  .projects { display:grid; gap:1rem; }
+  .card { background:var(--surface); border:1px solid var(--rule); border-radius:11px; padding:1.3rem 1.4rem; }
+  .card-top { display:flex; flex-wrap:wrap; align-items:baseline; gap:.6rem; margin-bottom:.5rem; }
+  .card h3 { margin:0; font-size:1.04rem; font-weight:600; }
+  .meta {
+    font:400 .76rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint); letter-spacing:.02em;
+  }
+  .card p { margin:0; font-size:.98rem; color:var(--ink-soft); }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size:.88em; background:var(--code); padding:.1em .35em; border-radius:4px;
+  }
+  pre.install {
+    margin:.95rem 0 0; background:var(--code); border:1px solid var(--rule); border-radius:7px;
+    padding:.7rem .85rem; overflow-x:auto;
+    font:400 .86rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color:var(--ink);
+  }
+  pre.install code { background:none; padding:0; font-size:1em; }
+  pre.install::before {
+    content:"$"; color:var(--ink-faint); margin-right:.55rem; user-select:none;
+  }
+  .warn {
+    margin:.8rem 0 0; font:400 .84rem/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint); border-left:2px solid var(--rule); padding-left:.8rem;
+  }
+  .cardlinks {
+    margin-top:.95rem; display:flex; flex-wrap:wrap; gap:1.1rem;
+    font:500 .85rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+  }
+  .cardlinks a { color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; }
+  .cardlinks a:hover { border-bottom-color:var(--accent); }
+
+  .tags { margin-top:.9rem; display:flex; flex-wrap:wrap; gap:.35rem; }
+  .tag {
+    font:400 .72rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    background:var(--chip); color:var(--ink-faint); padding:.35rem .55rem; border-radius:5px;
+  }
+
+  .figures {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr)); gap:1px;
+    background:var(--rule); border:1px solid var(--rule); border-radius:10px;
+    overflow:hidden; margin-top:1.5rem;
+  }
+  .fig { background:var(--surface); padding:1.2rem 1.1rem; }
+  .fig b {
+    display:block; font:600 1.45rem/1.1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    letter-spacing:-.02em; font-variant-numeric:tabular-nums;
+  }
+  .fig span {
+    display:block; margin-top:.35rem;
+    font:400 .81rem/1.4 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint);
+  }
+  .asof {
+    margin:.75rem 0 0;
+    font:400 .81rem/1.5 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint);
+  }
+
+  .note {
+    background:var(--accent-soft); border-left:2px solid var(--accent);
+    padding:1.05rem 1.2rem; border-radius:0 8px 8px 0; font-size:.96rem;
+    color:var(--ink-soft); margin-top:1.5rem;
+  }
+
+  a.link {
+    color:var(--accent); text-decoration:none;
+    border-bottom:1px solid color-mix(in srgb, var(--accent) 35%, transparent); font-weight:500;
+  }
+  a.link:hover { border-bottom-color:var(--accent); }
+  .signature { margin-top:1.1rem; font-size:.96rem; color:var(--ink-faint); }
+
+  footer {
+    margin-top:4rem; padding:2rem 0 3.5rem; border-top:1px solid var(--rule);
+    font:400 .82rem/1.6 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint);
+  }
+  footer p { margin:0 0 .7rem; max-width:64ch; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="topbar">
+      <div class="brand">Jiru&thinsp;<span>Labs</span></div>
+      <a class="lang" href="/" hreflang="es">Español</a>
+    </div>
+    <h1>An independent lab, in Madrid.</h1>
+    <p class="lede">We build open-source tooling for people who run AI agents on their own infrastructure, and we do longitudinal analysis of market data. Two lines of work, one standard: local first, no telemetry, and no number that doesn't hold up.</p>
+  </header>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Open source</h2>
+    <div class="projects">
+
+      <div class="card">
+        <div class="card-top">
+          <h3>mcp-config-audit</h3>
+          <span class="meta">Python · MIT</span>
+        </div>
+        <p>Audits MCP configuration files for hardcoded keys, plaintext transports, <code>curl&nbsp;|&nbsp;sh</code> launch commands and over-broad permissions. It reads the configuration, not the servers. SARIF output.</p>
+        <pre class="install"><code>pipx install mcp-config-audit</code></pre>
+        <p class="warn">PyPI is the only registry it is published to, always from a tagged commit in this repository. A package of this name on npm or any other registry is not ours.</p>
+        <div class="cardlinks"><a href="https://github.com/jiru-labs/mcp-config-audit">Source</a><a href="https://pypi.org/project/mcp-config-audit/">PyPI</a></div>
+        <div class="tags"><span class="tag">mcp</span><span class="tag">ai-security</span><span class="tag">static-analysis</span><span class="tag">sarif</span><span class="tag">devsecops</span></div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <h3>proofkey</h3>
+          <span class="meta">TypeScript · MIT</span>
+        </div>
+        <p>Grammarly-style writing assistant for Chrome that uses your own API key. No backend, no account, no telemetry. Works with Anthropic, OpenAI, Ollama and any compatible endpoint.</p>
+        <div class="cardlinks"><a href="https://chromewebstore.google.com/detail/loibjoemoahkajjnfioajcibcamhdafc">Install from the Chrome Web Store</a><a href="https://github.com/jiru-labs/proofkey">Source</a></div>
+        <div class="tags"><span class="tag">chrome-extension</span><span class="tag">byok</span><span class="tag">llm</span><span class="tag">privacy</span><span class="tag">manifest-v3</span></div>
+      </div>
+
+    </div>
+    <p class="soft" style="margin-top:1.3rem; font-size:.96rem">All the code is at <a class="link" href="https://github.com/jiru-labs">github.com/jiru-labs</a>.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Data analysis — Madrid residential market</h2>
+    <p class="soft">We track the residential supply of Madrid and its metropolitan area daily, listing by listing, from the day it is published until it disappears. That series yields figures an average-price report cannot give: <strong>how long each zone actually takes to sell</strong>, <strong>what share of sellers end up cutting the price</strong>, by how much, and how long they wait before doing it.</p>
+    <p class="soft">Time on market is estimated with survival analysis: listings still active are not discarded, they inform the estimate up to the last observed date. That is what avoids the optimistic bias of averaging only what has already sold. Aggregates are cross-checked against the INE's official transaction statistics for the province.</p>
+
+    <div class="figures">
+      <div class="fig"><b>44</b><span>zones covered</span></div>
+      <div class="fig"><b>65,000+</b><span>listings tracked</span></div>
+      <div class="fig"><b>545,000+</b><span>price observations</span></div>
+      <div class="fig"><b>May 2026</b><span>series starts</span></div>
+    </div>
+    <p class="asof">Figures as of 19 August 2026.</p>
+
+    <div class="note">Estimates that do not reach sufficient resolution are published as such —“&gt;&nbsp;88&nbsp;days” rather than an invented median— and every figure travels with its margin. A number that cannot carry a decision is worse than no number.</div>
+
+    <p class="soft" style="margin-top:1.5rem; font-size:.96rem">Delivered as a PDF report with the per-zone analysis, plus the working data in Excel. A one-off study over the accumulated history, or a quarterly update.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Contact</h2>
+    <p>To request an extract for a zone, discuss a commission, or anything about the projects: <a class="link" href="mailto:info@jirulabs.com">info@jirulabs.com</a></p>
+    <p class="signature">Madrid, Spain</p>
+  </section>
+
+  <footer>
+    <p>Market reports are produced from publicly accessible property information, transformed and aggregated. They contain no personal data of private sellers in any form.</p>
+    <p>The information is provided for market-analysis purposes and does not constitute investment advice or a recommendation to buy or sell.</p>
+    <p>© 2026 Jiru Labs · Madrid</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
