@@ -1,29 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Jiru Labs — Open-source tools and data analysis</title>
-<meta name="description" content="Independent lab in Madrid. Open-source tooling for people who run AI agents on their own infrastructure, and longitudinal analysis of the Madrid residential market.">
-<link rel="canonical" href="https://jirulabs.com/en/">
-<link rel="alternate" hreflang="es" href="https://jirulabs.com/">
-<link rel="alternate" hreflang="en" href="https://jirulabs.com/en/">
-<link rel="alternate" hreflang="x-default" href="https://jirulabs.com/">
+<title>ProofKey — Asistente de escritura al estilo Grammarly, con tu propia clave</title>
+<meta name="description" content="Extensión de Chrome, gratuita y de código abierto: corrección gramatical en línea y reescrituras, enviadas solo al proveedor de IA que configures con tu propia clave, o a un modelo local. Sin backend, sin cuenta, sin telemetría.">
+<link rel="canonical" href="https://jirulabs.com/proofkey/">
+<link rel="alternate" hreflang="es" href="https://jirulabs.com/proofkey/">
+<link rel="alternate" hreflang="en" href="https://jirulabs.com/en/proofkey/">
+<link rel="alternate" hreflang="x-default" href="https://jirulabs.com/en/proofkey/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Jiru Labs">
-<meta property="og:locale" content="en_GB">
-<meta property="og:title" content="Jiru Labs — Open-source tools and data analysis">
-<meta property="og:description" content="Independent lab in Madrid. Open-source tooling for people who run AI agents on their own infrastructure, and longitudinal analysis of the Madrid residential market.">
-<meta property="og:url" content="https://jirulabs.com/en/">
-<meta property="og:image" content="https://jirulabs.com/og-en.png">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="ProofKey — Asistente de escritura al estilo Grammarly, con tu propia clave">
+<meta property="og:description" content="Extensión de Chrome, gratuita y de código abierto: corrección gramatical en línea y reescrituras, enviadas solo al proveedor de IA que configures con tu propia clave, o a un modelo local. Sin backend, sin cuenta, sin telemetría.">
+<meta property="og:url" content="https://jirulabs.com/proofkey/">
+<meta property="og:image" content="https://jirulabs.com/og-es.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="An independent lab, in Madrid.">
+<meta property="og:image:alt" content="Ayuda para escribir al estilo Grammarly. Tu clave, tu proveedor, tu texto.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jirulabs.com/og-en.png">
+<meta name="twitter:image" content="https://jirulabs.com/og-es.png">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="/favicon.ico" sizes="32x32">
@@ -192,75 +192,91 @@
 
   <header>
     <div class="topbar">
-      <div class="brand">Jiru&thinsp;<span>Labs</span></div>
-      <a class="lang" href="/" hreflang="es">Español</a>
+      <a class="crumb" href="/">Jiru Labs /</a>
+      <a class="lang" href="/en/proofkey/" hreflang="en">English</a>
     </div>
-    <h1>An independent lab, in Madrid.</h1>
-    <p class="lede">We build open-source tooling for people who run AI agents on their own infrastructure, and we do longitudinal analysis of market data. Two lines of work, one standard: local first, no telemetry, and no number that doesn't hold up.</p>
+    <h1>Ayuda para escribir al estilo Grammarly. Tu clave, tu proveedor, tu texto.</h1>
+    <p class="lede">ProofKey es una extensión de Chrome gratuita y de código abierto. Subraya los errores mientras escribes y reescribe a petición, como hace Grammarly. La diferencia es adónde va el texto: solo al proveedor de IA que configures con tu propia clave de API, o a un modelo que corra en tu propia máquina. No hay ningún servidor nuestro en medio.</p>
+    <div class="cta">
+      <a class="primary" href="https://chromewebstore.google.com/detail/loibjoemoahkajjnfioajcibcamhdafc">Instalar desde Chrome Web Store</a>
+      <a href="https://github.com/jiru-labs/proofkey">Leer el código en GitHub</a>
+    </div>
+    <div class="demo">
+      <img src="/proofkey-demo.gif" width="960" height="560" alt="Un borrador escrito en un compositor; aparecen subrayados; se aplica una corrección desde la tarjeta; un atajo de teclado corrige el resto." loading="lazy">
+      <p>Grabado contra el código publicado con correcciones enlatadas, sin clave. En un sitio real las sugerencias vienen del modelo que hayas elegido.</p>
+    </div>
   </header>
 
   <hr class="rule">
 
   <section>
-    <h2>Open source</h2>
-    <div class="projects">
-
-      <div class="card">
-        <div class="card-top">
-          <h3>mcp-config-audit</h3>
-          <span class="meta">Python · MIT</span>
-        </div>
-        <p>Audits MCP configuration files for hardcoded keys, plaintext transports, <code>curl&nbsp;|&nbsp;sh</code> launch commands and over-broad permissions. It reads the configuration, not the servers. SARIF output.</p>
-        <pre class="install"><code>pipx install mcp-config-audit</code></pre>
-        <p class="warn">PyPI is the only registry it is published to, always from a tagged commit in this repository. A package of this name on npm or any other registry is not ours.</p>
-        <div class="cardlinks"><a href="https://github.com/jiru-labs/mcp-config-audit">Source</a><a href="https://pypi.org/project/mcp-config-audit/">PyPI</a></div>
-        <div class="tags"><span class="tag">mcp</span><span class="tag">ai-security</span><span class="tag">static-analysis</span><span class="tag">sarif</span><span class="tag">devsecops</span></div>
-      </div>
-      <div class="card">
-        <div class="card-top">
-          <h3>proofkey</h3>
-          <span class="meta">TypeScript · MIT</span>
-        </div>
-        <p>Grammarly-style writing assistant for Chrome that uses your own API key. No backend, no account, no telemetry. Works with Anthropic, OpenAI, Ollama and any compatible endpoint.</p>
-        <div class="cardlinks"><a href="/en/proofkey/">More about ProofKey</a><a href="https://chromewebstore.google.com/detail/loibjoemoahkajjnfioajcibcamhdafc">Install from the Chrome Web Store</a><a href="https://github.com/jiru-labs/proofkey">Source</a></div>
-        <div class="tags"><span class="tag">chrome-extension</span><span class="tag">byok</span><span class="tag">llm</span><span class="tag">privacy</span><span class="tag">manifest-v3</span></div>
-      </div>
-
-    </div>
-    <p class="soft" style="margin-top:1.3rem; font-size:.96rem">All the code is at <a class="link" href="https://github.com/jiru-labs">github.com/jiru-labs</a>.</p>
+    <h2>Qué hace</h2>
+    <ul class="plain">
+      <li>Subraya errores de gramática, ortografía y estilo mientras escribes, con un contador.</li>
+      <li>Una tarjeta en cada subrayado: aplicar la corrección, pedir al modelo que la explique, ignorarla o añadir la palabra a tu diccionario.</li>
+      <li>Nueve acciones sobre el texto seleccionado, desde el menú contextual o un atajo: corregir gramática, mejorar la redacción, hacerlo profesional, hacerlo cercano, simplificar, resumir, ampliar, convertir en viñetas, traducir.</li>
+      <li>Un perfil de escritura que el modelo ve en cada petición: tu guía de estilo, palabras que nunca debe marcar, tu lengua materna, el idioma de las explicaciones.</li>
+      <li>Una cadena de respaldo: primero un modelo local y después una clave en la nube, o al revés. Si uno falla, ProofKey pasa al siguiente y te dice cuál falló.</li>
+    </ul>
   </section>
 
   <hr class="rule">
 
   <section>
-    <h2>Data analysis — Madrid residential market</h2>
-    <p class="soft">We track the residential supply of Madrid and its metropolitan area daily, listing by listing, from the day it is published until it disappears. That series yields figures an average-price report cannot give: <strong>how long each zone actually takes to sell</strong>, <strong>what share of sellers end up cutting the price</strong>, by how much, and how long they wait before doing it.</p>
-    <p class="soft">Time on market is estimated with survival analysis: listings still active are not discarded, they inform the estimate up to the last observed date. That is what avoids the optimistic bias of averaging only what has already sold. Aggregates are cross-checked against the INE's official transaction statistics for the province.</p>
-
-    <div class="figures">
-      <div class="fig"><b>44</b><span>zones covered</span></div>
-      <div class="fig"><b>65,000+</b><span>listings tracked</span></div>
-      <div class="fig"><b>545,000+</b><span>price observations</span></div>
-      <div class="fig"><b>May 2026</b><span>series starts</span></div>
+    <h2>Dónde funciona hoy</h2>
+    <p class="soft">Todo lo de esta lista se probó a mano, en un navegador real, sobre una versión publicada. El resto está sin probar, que significa que nadie lo ha comprobado, no que esté roto.</p>
+    <div class="kv"><b>Sitios</b>
+      <p class="soft">WhatsApp Web, Gmail, Telegram Web, Outlook y Hotmail, Tuta, Reddit, X.</p>
+      <p class="soft">iCloud Mail e Infomaniak Mail funcionan tras permitir un origen extra, porque su editor vive dentro de un marco en otro dominio. ProofKey ofrece ese origen cuando el cursor entra ahí.</p>
+      <p class="soft">Google Docs no está soportado: pinta el texto en un canvas y no hay nada que subrayar.</p>
     </div>
-    <p class="asof">Figures as of 19 August 2026.</p>
-
-    <div class="note">Estimates that do not reach sufficient resolution are published as such —“&gt;&nbsp;88&nbsp;days” rather than an invented median— and every figure travels with its margin. A number that cannot carry a decision is worse than no number.</div>
-
-    <p class="soft" style="margin-top:1.5rem; font-size:.96rem">Delivered as a PDF report with the per-zone analysis, plus the working data in Excel. A one-off study over the accumulated history, or a quarterly update.</p>
+    <div class="kv"><b>Proveedores</b>
+      <p class="soft">Medidos con claves reales: Google Gemini, xAI (Grok), OpenRouter, OpenCode Go. Medido en local: un servidor llama.cpp con tres modelos de principio a fin.</p>
+      <p class="soft">Los otros 31 presets, Anthropic, OpenAI, Mistral, Groq, Ollama y el resto, recorren el mismo código que algo ya probado, pero nadie los ha ejecutado todavía.</p>
+    </div>
+    <p><a class="link" href="https://github.com/jiru-labs/proofkey/blob/main/COMPATIBILITY.md">La tabla completa, con la evidencia de cada fila</a></p>
   </section>
 
   <hr class="rule">
 
   <section>
-    <h2>Contact</h2>
-    <p>To request an extract for a zone, discuss a commission, or anything about the projects: <a class="link" href="mailto:info@jirulabs.com">info@jirulabs.com</a></p>
-    <p class="signature">Madrid, Spain</p>
+    <h2>Cómo empezar</h2>
+    <p class="soft">Necesitas una clave de API. Es el único paso previo, y con una clave gratuita de Gemini en Google AI Studio lleva unos dos minutos. Para un uso normal la cuota gratuita suele bastar, así que puedes probar ProofKey sin pagar nada.</p>
+    <ol class="plain">
+      <li>Abre Google AI Studio, entra con cualquier cuenta de Google y pulsa Create API key.</li>
+      <li>En Chrome, pulsa el icono de ProofKey, después Settings, y elige Google Gemini en la lista de proveedores.</li>
+      <li>Pega la clave, pulsa Fetch models, elige gemini-2.5-flash y guarda.</li>
+      <li>Abre cualquier sitio con un cuadro de texto, permite ProofKey en él desde el botón de la barra y escribe una frase con errores.</li>
+    </ol>
+    <div class="note">
+      <p>Con una clave gratuita el proveedor puede usar lo que envías para mejorar sus modelos. Lee las condiciones del proveedor que elijas antes de pegar nada sensible.</p>
+      <p>Cuando se agota el cupo diario, la corrección en vivo se queda en silencio en lugar de mostrar un error. Las acciones sí te dicen qué ha fallado.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Privacidad, en claro</h2>
+    <ul class="plain">
+      <li>ProofKey no tiene backend. Tu texto va de tu navegador directamente al endpoint que hayas configurado, y a ningún otro sitio. Apúntalo a un modelo local y nada sale de tu máquina.</li>
+      <li>Sin cuenta, sin registro, sin telemetría, sin analítica. Tu clave se guarda en el almacenamiento de extensiones de tu navegador y solo se envía a tu proveedor.</li>
+      <li>El acceso a cada sitio lo pides tú, sitio a sitio. Ni por adelantado, ni para todos.</li>
+      <li>Tu texto queda sujeto a la política de privacidad del proveedor que elijas. Varían muchísimo en retención y entrenamiento, y conviene leerla antes.</li>
+    </ul>
+    <p style="margin-top:1.1rem"><a class="link" href="https://github.com/jiru-labs/proofkey/blob/main/PRIVACY.md">La política de privacidad completa</a></p>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Estado real</h2>
+    <p class="soft">Es una versión temprana. Lo construido es más grande que lo confirmado a mano, y el repositorio mantiene las dos cosas separadas: lo afirma una prueba automática, lo ejecutó un mantenedor, lo reportó un usuario, o nadie lo ha intentado. Una fila solo se mueve cuando hay un enlace que señalar.</p>
+    <p class="soft">Si se te rompe, un issue sirve mucho más que un comentario: <a class="link" href="https://github.com/jiru-labs/proofkey/issues">GitHub Issues</a></p>
+    <p class="signature">Licencia MIT. Hecho por Jiru Labs en Madrid.</p>
   </section>
 
   <footer>
-    <p>Market reports are produced from publicly accessible property information, transformed and aggregated. They contain no personal data of private sellers in any form.</p>
-    <p>The information is provided for market-analysis purposes and does not constitute investment advice or a recommendation to buy or sell.</p>
     <p>© 2026 Jiru Labs · Madrid</p>
   </footer>
 

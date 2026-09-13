@@ -163,6 +163,27 @@
     color:var(--ink-faint);
   }
   footer p { margin:0 0 .7rem; max-width:64ch; }
+
+  .cta { margin:1.6rem 0 0; display:flex; flex-wrap:wrap; gap:.7rem; }
+  .cta a {
+    display:inline-block; text-decoration:none; border-radius:8px; padding:.7rem 1.05rem;
+    font:500 .92rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    border:1px solid var(--rule); color:var(--ink);
+  }
+  .cta a.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .cta a:hover { border-color:var(--accent); }
+  .demo { margin:2.4rem 0 0; }
+  .demo img {
+    display:block; width:100%; height:auto; border:1px solid var(--rule); border-radius:11px;
+    background:var(--surface);
+  }
+  .demo p { margin:.6rem 0 0; font:400 .81rem/1.5 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; color:var(--ink-faint); }
+  ul.plain, ol.plain { margin:0; padding-left:1.2rem; }
+  ul.plain li, ol.plain li { margin:0 0 .6rem; color:var(--ink-soft); }
+  .kv { margin:0 0 1.1rem; }
+  .kv b { font:600 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:.4rem; }
+  .crumb { font:400 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; color:var(--ink-faint); text-decoration:none; }
+  .crumb:hover { color:var(--accent); }
 </style>
 </head>
 <body>
@@ -201,7 +222,7 @@
           <span class="meta">TypeScript · MIT</span>
         </div>
         <p>Asistente de escritura para Chrome al estilo Grammarly, pero con tu propia clave de API. Sin backend, sin cuenta, sin telemetría. Compatible con Anthropic, OpenAI, Ollama y cualquier endpoint compatible.</p>
-        <div class="cardlinks"><a href="https://chromewebstore.google.com/detail/loibjoemoahkajjnfioajcibcamhdafc">Instalar desde Chrome Web Store</a><a href="https://github.com/jiru-labs/proofkey">Código</a></div>
+        <div class="cardlinks"><a href="/proofkey/">Más sobre ProofKey</a><a href="https://chromewebstore.google.com/detail/loibjoemoahkajjnfioajcibcamhdafc">Instalar desde Chrome Web Store</a><a href="https://github.com/jiru-labs/proofkey">Código</a></div>
         <div class="tags"><span class="tag">chrome-extension</span><span class="tag">byok</span><span class="tag">llm</span><span class="tag">privacy</span><span class="tag">manifest-v3</span></div>
       </div>
 
