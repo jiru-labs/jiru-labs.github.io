@@ -196,7 +196,7 @@
       <a class="lang" href="/proofkey/" hreflang="es">Español</a>
     </div>
     <h1>Grammarly-style writing help. Your key, your provider, your text.</h1>
-    <p class="lede">ProofKey is a free, open-source Chrome extension. It underlines mistakes as you type and rewrites on request, the way Grammarly does. The difference is where the text goes: only to the AI provider you configure with your own API key, or to a model running on your own machine. There is no server of ours in between.</p>
+    <p class="lede">ProofKey is a free, open-source Chrome extension. It underlines mistakes as you type and rewrites on request, the way Grammarly does. The difference is where the text goes: only to the AI provider you configure with your own API key, or to a model running on your own machine. In Google Chrome it needs neither: it starts on the model Chrome keeps on your computer, with no key and no account. There is no server of ours in between.</p>
     <div class="cta">
       <a class="primary" href="https://chromewebstore.google.com/detail/loibjoemoahkajjnfioajcibcamhdafc">Install from the Chrome Web Store</a>
       <a href="https://github.com/jiru-labs/proofkey">Read the source on GitHub</a>
@@ -231,6 +231,7 @@
       <p class="soft">Google Docs is not supported: it paints text to a canvas and there is nothing to underline.</p>
     </div>
     <div class="kv"><b>Providers</b>
+      <p class="soft">No key: Chrome's built-in model (Gemini Nano), for live checking and Fix grammar, measured in Google Chrome 153 on one laptop. Brave reports it unavailable; other browsers are untested.</p>
       <p class="soft">Measured with real keys: Google Gemini, xAI (Grok), OpenRouter, OpenCode Go. Measured self-hosted: a local llama.cpp server, three models end to end.</p>
       <p class="soft">The other 31 presets, Anthropic, OpenAI, Mistral, Groq, Ollama and the rest, take the same code path as something that was tested, but nobody has run them yet.</p>
     </div>
@@ -241,7 +242,12 @@
 
   <section>
     <h2>Getting started</h2>
-    <p class="soft">You need an API key. That is the one step before anything works, and it takes about two minutes with a free Gemini key from Google AI Studio. For ordinary use the free allowance is usually enough, so you can try ProofKey without paying anything.</p>
+    <p class="soft">In Google Chrome there is nothing to sign up for. Settings opens after you install, with Chrome's built-in model already selected.</p>
+    <ol class="plain">
+      <li>On the Chrome built-in AI card, click Download model. Chrome fetches it once, about 4 GB.</li>
+      <li>When the card says Ready, open any site with a text box, allow ProofKey on it from the toolbar button, and type a sentence with mistakes.</li>
+    </ol>
+    <p class="soft">That model is smaller than the cloud ones, so ProofKey offers it live checking and Fix grammar, the two it measured well on, and keeps the other actions for a provider with a key. For every action, or in a browser without the model, add an API key: about two minutes with a free Gemini key from Google AI Studio, and for ordinary use the free allowance is usually enough.</p>
     <ol class="plain">
       <li>Open Google AI Studio, sign in with any Google account, and click Create API key.</li>
       <li>In Chrome, click the ProofKey icon, then Settings, and choose Google Gemini from the provider list.</li>
@@ -260,9 +266,10 @@
     <h2>Privacy, plainly</h2>
     <ul class="plain">
       <li>ProofKey has no backend. Your text goes from your browser directly to the endpoint you configured, and nowhere else. Point it at a local model and nothing leaves your machine.</li>
+      <li>With Chrome's built-in model, ProofKey makes no request at all: the check runs on your computer.</li>
       <li>No account, no sign-up, no telemetry, no analytics. Your key is stored in your browser's extension storage and is never sent anywhere but to your provider.</li>
       <li>Site access is requested per site, by you. Not up front, and not for all sites.</li>
-      <li>Your text is subject to your chosen provider's privacy policy. Providers vary enormously on retention and training, and that is worth reading first.</li>
+      <li>With any other provider, your text is subject to its privacy policy. Providers vary enormously on retention and training, and that is worth reading first.</li>
     </ul>
     <p style="margin-top:1.1rem"><a class="link" href="https://github.com/jiru-labs/proofkey/blob/main/PRIVACY.md">The privacy policy, in full</a></p>
   </section>

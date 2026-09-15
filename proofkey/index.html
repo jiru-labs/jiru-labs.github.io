@@ -196,7 +196,7 @@
       <a class="lang" href="/en/proofkey/" hreflang="en">English</a>
     </div>
     <h1>Ayuda para escribir al estilo Grammarly. Tu clave, tu proveedor, tu texto.</h1>
-    <p class="lede">ProofKey es una extensión de Chrome gratuita y de código abierto. Subraya los errores mientras escribes y reescribe a petición, como hace Grammarly. La diferencia es adónde va el texto: solo al proveedor de IA que configures con tu propia clave de API, o a un modelo que corra en tu propia máquina. No hay ningún servidor nuestro en medio.</p>
+    <p class="lede">ProofKey es una extensión de Chrome gratuita y de código abierto. Subraya los errores mientras escribes y reescribe a petición, como hace Grammarly. La diferencia es adónde va el texto: solo al proveedor de IA que configures con tu propia clave de API, o a un modelo que corra en tu propia máquina. En Google Chrome no necesita ninguna de las dos cosas: arranca con el modelo que Chrome guarda en tu ordenador, sin clave y sin cuenta. No hay ningún servidor nuestro en medio.</p>
     <div class="cta">
       <a class="primary" href="https://chromewebstore.google.com/detail/loibjoemoahkajjnfioajcibcamhdafc">Instalar desde Chrome Web Store</a>
       <a href="https://github.com/jiru-labs/proofkey">Leer el código en GitHub</a>
@@ -231,6 +231,7 @@
       <p class="soft">Google Docs no está soportado: pinta el texto en un canvas y no hay nada que subrayar.</p>
     </div>
     <div class="kv"><b>Proveedores</b>
+      <p class="soft">Sin clave: el modelo integrado de Chrome (Gemini Nano), para la corrección en vivo y Fix grammar, medido en Google Chrome 153 en un portátil. Brave lo da como no disponible; el resto de navegadores está sin probar.</p>
       <p class="soft">Medidos con claves reales: Google Gemini, xAI (Grok), OpenRouter, OpenCode Go. Medido en local: un servidor llama.cpp con tres modelos de principio a fin.</p>
       <p class="soft">Los otros 31 presets, Anthropic, OpenAI, Mistral, Groq, Ollama y el resto, recorren el mismo código que algo ya probado, pero nadie los ha ejecutado todavía.</p>
     </div>
@@ -241,7 +242,12 @@
 
   <section>
     <h2>Cómo empezar</h2>
-    <p class="soft">Necesitas una clave de API. Es el único paso previo, y con una clave gratuita de Gemini en Google AI Studio lleva unos dos minutos. Para un uso normal la cuota gratuita suele bastar, así que puedes probar ProofKey sin pagar nada.</p>
+    <p class="soft">En Google Chrome no hay nada en lo que registrarse. Settings se abre al instalar, con el modelo integrado de Chrome ya elegido.</p>
+    <ol class="plain">
+      <li>En la tarjeta Chrome built-in AI, pulsa Download model. Chrome lo descarga una vez, unos 4 GB.</li>
+      <li>Cuando la tarjeta diga Ready, abre cualquier sitio con un cuadro de texto, permite ProofKey en él desde el botón de la barra y escribe una frase con errores.</li>
+    </ol>
+    <p class="soft">Ese modelo es más pequeño que los de la nube, así que ProofKey le ofrece la corrección en vivo y Fix grammar, las dos que salieron bien en las mediciones, y guarda el resto de acciones para un proveedor con clave. Para todas las acciones, o en un navegador sin ese modelo, añade una clave de API: con una clave gratuita de Gemini en Google AI Studio lleva unos dos minutos, y para un uso normal la cuota gratuita suele bastar.</p>
     <ol class="plain">
       <li>Abre Google AI Studio, entra con cualquier cuenta de Google y pulsa Create API key.</li>
       <li>En Chrome, pulsa el icono de ProofKey, después Settings, y elige Google Gemini en la lista de proveedores.</li>
@@ -260,9 +266,10 @@
     <h2>Privacidad, en claro</h2>
     <ul class="plain">
       <li>ProofKey no tiene backend. Tu texto va de tu navegador directamente al endpoint que hayas configurado, y a ningún otro sitio. Apúntalo a un modelo local y nada sale de tu máquina.</li>
+      <li>Con el modelo integrado de Chrome, ProofKey no hace ninguna petición: la corrección ocurre en tu ordenador.</li>
       <li>Sin cuenta, sin registro, sin telemetría, sin analítica. Tu clave se guarda en el almacenamiento de extensiones de tu navegador y solo se envía a tu proveedor.</li>
       <li>El acceso a cada sitio lo pides tú, sitio a sitio. Ni por adelantado, ni para todos.</li>
-      <li>Tu texto queda sujeto a la política de privacidad del proveedor que elijas. Varían muchísimo en retención y entrenamiento, y conviene leerla antes.</li>
+      <li>Con cualquier otro proveedor, tu texto queda sujeto a su política de privacidad. Varían muchísimo en retención y entrenamiento, y conviene leerla antes.</li>
     </ul>
     <p style="margin-top:1.1rem"><a class="link" href="https://github.com/jiru-labs/proofkey/blob/main/PRIVACY.md">La política de privacidad completa</a></p>
   </section>
