@@ -231,7 +231,7 @@
       <p class="soft">Google Docs no está soportado: pinta el texto en un canvas y no hay nada que subrayar.</p>
     </div>
     <div class="kv"><b>Proveedores</b>
-      <p class="soft">Sin clave: el modelo integrado de Chrome (Gemini Nano), para la corrección en vivo y Fix grammar, medido en Google Chrome 153 en un portátil. Brave lo da como no disponible; el resto de navegadores está sin probar.</p>
+      <p class="soft">Sin clave: el modelo integrado de Chrome (Gemini Nano), para la corrección en vivo y Fix grammar, medido en Google Chrome 153 en un portátil. Brave lo desactiva, así que allí ProofKey puede ejecutar un modelo dentro del navegador (Qwen3.5 4B en la GPU, con WebGPU): medido en Brave en Windows con una GPU AMD de 8 GB, sacó 13,0/14 en la corrección en vivo, lo mismo que el de Chrome. Se le ofrecen la corrección en vivo, Fix grammar, las viñetas y Translate.</p>
       <p class="soft">Medidos con claves reales: Google Gemini, xAI (Grok), OpenRouter, OpenCode Go. Medido en local: un servidor llama.cpp con tres modelos de principio a fin.</p>
       <p class="soft">Los otros 31 presets, Anthropic, OpenAI, Mistral, Groq, Ollama y el resto, recorren el mismo código que algo ya probado, pero nadie los ha ejecutado todavía.</p>
     </div>
@@ -247,7 +247,7 @@
       <li>En la tarjeta Chrome built-in AI, pulsa Download model. Chrome lo descarga una vez, unos 4 GB.</li>
       <li>Cuando la tarjeta diga Ready, abre cualquier sitio con un cuadro de texto, permite ProofKey en él desde el botón de la barra y escribe una frase con errores.</li>
     </ol>
-    <p class="soft">Ese modelo es más pequeño que los de la nube, así que ProofKey le ofrece la corrección en vivo y Fix grammar, las dos que salieron bien en las mediciones, y guarda el resto de acciones para un proveedor con clave. Para todas las acciones, o en un navegador sin ese modelo, añade una clave de API: con una clave gratuita de Gemini en Google AI Studio lleva unos dos minutos, y para un uso normal la cuota gratuita suele bastar.</p>
+    <p class="soft">Ese modelo es más pequeño que los de la nube, así que ProofKey le ofrece la corrección en vivo y Fix grammar, las dos que salieron bien en las mediciones, y guarda el resto de acciones para un proveedor con clave. En Brave, pulsa Run a model inside this browser en la misma tarjeta: una descarga de 2,4 GB desde huggingface.co, que empieza con su propio botón, y necesita una GPU con unos 4 GB de memoria. Para todas las acciones, añade una clave de API: con una clave gratuita de Gemini en Google AI Studio lleva unos dos minutos, y para un uso normal la cuota gratuita suele bastar.</p>
     <ol class="plain">
       <li>Abre Google AI Studio, entra con cualquier cuenta de Google y pulsa Create API key.</li>
       <li>En Chrome, pulsa el icono de ProofKey, después Settings, y elige Google Gemini en la lista de proveedores.</li>
@@ -266,7 +266,7 @@
     <h2>Privacidad, en claro</h2>
     <ul class="plain">
       <li>ProofKey no tiene backend. Tu texto va de tu navegador directamente al endpoint que hayas configurado, y a ningún otro sitio. Apúntalo a un modelo local y nada sale de tu máquina.</li>
-      <li>Con el modelo integrado de Chrome, ProofKey no hace ninguna petición: la corrección ocurre en tu ordenador.</li>
+      <li>Con el modelo integrado de Chrome, ProofKey no hace ninguna petición: la corrección ocurre en tu ordenador. Con el modelo dentro del navegador, la única petición es la descarga que tú inicias; después, las correcciones no hacen ninguna.</li>
       <li>Sin cuenta, sin registro, sin telemetría, sin analítica. Tu clave se guarda en el almacenamiento de extensiones de tu navegador y solo se envía a tu proveedor.</li>
       <li>El acceso a cada sitio lo pides tú, sitio a sitio. Ni por adelantado, ni para todos.</li>
       <li>Con cualquier otro proveedor, tu texto queda sujeto a su política de privacidad. Varían muchísimo en retención y entrenamiento, y conviene leerla antes.</li>
