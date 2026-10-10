@@ -181,7 +181,7 @@
   </header>
 
   <section class="policy">
-<!-- from https://github.com/jiru-labs/proofkey/blob/eec8595/PRIVACY.md -->
+<!-- from https://github.com/jiru-labs/proofkey/blob/cc35ee8/PRIVACY.md -->
 <div class="markdown-heading"><h1 class="heading-element">Privacy Policy</h1><a id="user-content-privacy-policy" class="anchor" aria-label="Permalink: Privacy Policy" href="#privacy-policy"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><strong>Last updated: 8 October 2026</strong></p>
 <p>ProofKey is a browser extension published by Jiru Labs. This policy describes
@@ -235,7 +235,7 @@ That is the browser's mechanism and its provider's policy; ProofKey neither
 operates nor can read that channel. With Sync off, or not signed in, they stay
 on this computer. The downloaded in-browser model never syncs.</p>
 <p>Your API keys are also copied to <code>chrome.storage.local</code>, by connection, and the
-copy is removed when you clear a key (on <code>main</code>, not in 0.1.13). This copy is
+copy is removed when you clear a key (since 0.1.14). This copy is
 the first step in keeping keys off the browser's sync: sync still holds them for
 now, so this changes nothing about where they travel.</p>
 <p>One more thing is kept, in <code>chrome.storage.local</code>, which never syncs: how many
