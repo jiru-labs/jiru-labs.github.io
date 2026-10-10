@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>ProofKey — Privacy Policy</title>
+<meta name="description" content="What the ProofKey browser extension does with your data: no backend, no account, no analytics.">
+<link rel="canonical" href="https://jirulabs.com/proofkey/privacy/">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico" sizes="32x32">
+<style>
+  :root {
+    --bg:#fbfaf8; --surface:#ffffff; --ink:#16171a; --ink-soft:#55585f; --ink-faint:#8b8f97;
+    --rule:#e4e2dd; --accent:#1f5f4f; --accent-soft:#eef3f1; --chip:#f2f1ed; --code:#f5f4f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:#101113; --surface:#17181b; --ink:#ecedf0; --ink-soft:#a9adb5; --ink-faint:#74787f;
+      --rule:#2a2c31; --accent:#6fbfa5; --accent-soft:#16211e; --chip:#1e2024; --code:#1b1d21;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:#101113; --surface:#17181b; --ink:#ecedf0; --ink-soft:#a9adb5; --ink-faint:#74787f;
+    --rule:#2a2c31; --accent:#6fbfa5; --accent-soft:#16211e; --chip:#1e2024; --code:#1b1d21;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin:0; background:var(--bg); color:var(--ink);
+    font:400 17px/1.65 ui-serif, Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width:47rem; margin:0 auto; padding:0 1.5rem; }
+
+  header { padding:4.5rem 0 0; }
+  .topbar { display:flex; align-items:baseline; justify-content:space-between; gap:1rem; }
+  .brand {
+    font:600 1.05rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    letter-spacing:.14em; text-transform:uppercase;
+  }
+  .brand span { color:var(--accent); }
+  .lang {
+    font:400 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint); text-decoration:none; letter-spacing:.06em;
+    border-bottom:1px solid var(--rule); padding-bottom:2px;
+  }
+  .lang:hover { color:var(--accent); border-bottom-color:var(--accent); }
+
+  h1 {
+    margin:2.5rem 0 0; font-size:clamp(1.65rem,5vw,2.2rem); line-height:1.24;
+    font-weight:500; letter-spacing:-.012em; max-width:26ch;
+  }
+  .lede { margin:1.15rem 0 0; font-size:1.07rem; color:var(--ink-soft); max-width:62ch; }
+
+  hr.rule { height:1px; background:var(--rule); border:0; margin:3.25rem 0; }
+
+  h2 {
+    font:600 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 1.5rem;
+  }
+  p { margin:0 0 1.1rem; }
+  p:last-child { margin-bottom:0; }
+  .soft { color:var(--ink-soft); }
+
+  .projects { display:grid; gap:1rem; }
+  .card { background:var(--surface); border:1px solid var(--rule); border-radius:11px; padding:1.3rem 1.4rem; }
+  .card-top { display:flex; flex-wrap:wrap; align-items:baseline; gap:.6rem; margin-bottom:.5rem; }
+  .card h3 { margin:0; font-size:1.04rem; font-weight:600; }
+  .meta {
+    font:400 .76rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint); letter-spacing:.02em;
+  }
+  .card p { margin:0; font-size:.98rem; color:var(--ink-soft); }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size:.88em; background:var(--code); padding:.1em .35em; border-radius:4px;
+  }
+  pre.install {
+    margin:.95rem 0 0; background:var(--code); border:1px solid var(--rule); border-radius:7px;
+    padding:.7rem .85rem; overflow-x:auto;
+    font:400 .86rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color:var(--ink);
+  }
+  pre.install code { background:none; padding:0; font-size:1em; }
+  pre.install::before {
+    content:"$"; color:var(--ink-faint); margin-right:.55rem; user-select:none;
+  }
+  .warn {
+    margin:.8rem 0 0; font:400 .84rem/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint); border-left:2px solid var(--rule); padding-left:.8rem;
+  }
+  .cardlinks {
+    margin-top:.95rem; display:flex; flex-wrap:wrap; gap:1.1rem;
+    font:500 .85rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+  }
+  .cardlinks a { color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; }
+  .cardlinks a:hover { border-bottom-color:var(--accent); }
+
+  .tags { margin-top:.9rem; display:flex; flex-wrap:wrap; gap:.35rem; }
+  .tag {
+    font:400 .72rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    background:var(--chip); color:var(--ink-faint); padding:.35rem .55rem; border-radius:5px;
+  }
+
+  .figures {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr)); gap:1px;
+    background:var(--rule); border:1px solid var(--rule); border-radius:10px;
+    overflow:hidden; margin-top:1.5rem;
+  }
+  .fig { background:var(--surface); padding:1.2rem 1.1rem; }
+  .fig b {
+    display:block; font:600 1.45rem/1.1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    letter-spacing:-.02em; font-variant-numeric:tabular-nums;
+  }
+  .fig span {
+    display:block; margin-top:.35rem;
+    font:400 .81rem/1.4 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint);
+  }
+  .asof {
+    margin:.75rem 0 0;
+    font:400 .81rem/1.5 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint);
+  }
+
+  .note {
+    background:var(--accent-soft); border-left:2px solid var(--accent);
+    padding:1.05rem 1.2rem; border-radius:0 8px 8px 0; font-size:.96rem;
+    color:var(--ink-soft); margin-top:1.5rem;
+  }
+
+  a.link {
+    color:var(--accent); text-decoration:none;
+    border-bottom:1px solid color-mix(in srgb, var(--accent) 35%, transparent); font-weight:500;
+  }
+  a.link:hover { border-bottom-color:var(--accent); }
+  .signature { margin-top:1.1rem; font-size:.96rem; color:var(--ink-faint); }
+
+  footer {
+    margin-top:4rem; padding:2rem 0 3.5rem; border-top:1px solid var(--rule);
+    font:400 .82rem/1.6 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint);
+  }
+  footer p { margin:0 0 .7rem; max-width:64ch; }
+
+  .cta { margin:1.6rem 0 0; display:flex; flex-wrap:wrap; gap:.7rem; }
+  .cta a {
+    display:inline-block; text-decoration:none; border-radius:8px; padding:.7rem 1.05rem;
+    font:500 .92rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    border:1px solid var(--rule); color:var(--ink);
+  }
+  .cta a.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .cta a:hover { border-color:var(--accent); }
+  .demo { margin:2.4rem 0 0; }
+  .demo img {
+    display:block; width:100%; height:auto; border:1px solid var(--rule); border-radius:11px;
+    background:var(--surface);
+  }
+  .demo p { margin:.6rem 0 0; font:400 .81rem/1.5 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; color:var(--ink-faint); }
+  ul.plain, ol.plain { margin:0; padding-left:1.2rem; }
+  ul.plain li, ol.plain li { margin:0 0 .6rem; color:var(--ink-soft); }
+  .kv { margin:0 0 1.1rem; }
+  .kv b { font:600 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:.4rem; }
+  .crumb { font:400 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; color:var(--ink-faint); text-decoration:none; }
+  .crumb:hover { color:var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="topbar">
+      <a class="crumb" href="/en/proofkey/">ProofKey /</a>
+    </div>
+  </header>
+
+  <section class="policy">
+<!-- from https://github.com/jiru-labs/proofkey/blob/eec8595/PRIVACY.md -->
+<div class="markdown-heading"><h1 class="heading-element">Privacy Policy</h1><a id="user-content-privacy-policy" class="anchor" aria-label="Permalink: Privacy Policy" href="#privacy-policy"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><strong>Last updated: 8 October 2026</strong></p>
+<p>ProofKey is a browser extension published by Jiru Labs. This policy describes
+what it does with your data. It is short because the extension does very little.</p>
+<div class="markdown-heading"><h2 class="heading-element">The short version</h2><a id="user-content-the-short-version" class="anchor" aria-label="Permalink: The short version" href="#the-short-version"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>ProofKey has no backend. There is no ProofKey server, no ProofKey account, and
+no analytics. Jiru Labs does not receive your text, your API keys, or any record
+that you used the extension.</p>
+<div class="markdown-heading"><h2 class="heading-element">What leaves your browser, and where it goes</h2><a id="user-content-what-leaves-your-browser-and-where-it-goes" class="anchor" aria-label="Permalink: What leaves your browser, and where it goes" href="#what-leaves-your-browser-and-where-it-goes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>When you run an action, ProofKey sends the text you selected — or the sentence
+you just finished typing — to <strong>the LLM provider you configured, at the base URL
+you configured</strong>, using <strong>your own API key</strong>. That request goes directly from
+your browser to that provider. It does not pass through any machine operated by
+Jiru Labs.</p>
+<p>Which provider that is, is entirely your choice. If you point ProofKey at a
+local model such as Ollama, nothing leaves your machine at all.</p>
+<p><strong>Chrome's built-in model sends nothing.</strong> In Google Chrome, a fresh install of
+ProofKey uses the language model Chrome keeps on your computer. Your text is
+handed to Chrome on the same machine and the check runs there; ProofKey makes no
+network request for it. Chrome downloads that model once, from Google, when you
+click <strong>Download model</strong>. What Chrome itself records about the download or about
+using its model is governed by Google's Chrome privacy notice, not by this
+policy.</p>
+<p><strong>A model inside the browser sends nothing either</strong> (since version 0.1.11). For browsers without Chrome's model, such as Brave, ProofKey can
+run a language model itself, on your computer's GPU. Your text never leaves the
+browser for it. The model's files are downloaded once — 2.4 GB, from
+<code>huggingface.co</code>, pinned to one published revision — and only when you click <strong>Download model</strong> in
+settings; ProofKey says the size and the host on that button before anything is
+fetched. That download is a request from your browser to Hugging Face, which
+sees it as any website sees a visit, under Hugging Face's own privacy policy. No
+text you check is part of it, and nothing is fetched again after it.</p>
+<p><strong>Your text is then subject to that provider's privacy policy, not this one.</strong>
+Providers differ enormously in whether they retain prompts or train on them.
+That is worth reading before you paste anything confidential into a field on a
+site where ProofKey is enabled.</p>
+<div class="markdown-heading"><h2 class="heading-element">What is stored, and where</h2><a id="user-content-what-is-stored-and-where" class="anchor" aria-label="Permalink: What is stored, and where" href="#what-is-stored-and-where"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Stored using the browser's own extension storage, on your device:</p>
+<ul>
+<li>your API keys and connection settings (base URL, model, headers);</li>
+<li>your actions and their prompts, including any you wrote;</li>
+<li>your keyboard shortcuts and the list of origins they run on;</li>
+<li>your writing profile: style guide, terms never to flag, first language;</li>
+<li>if you downloaded the in-browser model, its files, in the browser's storage
+for the extension. <strong>Remove the downloaded model</strong> in settings deletes them.</li>
+</ul>
+<p>All of the settings above — <strong>your API keys included</strong> — are kept in
+<code>chrome.storage.sync</code> (<code>src/core/storage.ts</code>). If you are signed in to the
+browser with Chrome Sync switched on for extensions, the browser copies them
+through your Google account's sync servers to your other signed-in browsers.
+That is the browser's mechanism and its provider's policy; ProofKey neither
+operates nor can read that channel. With Sync off, or not signed in, they stay
+on this computer. The downloaded in-browser model never syncs.</p>
+<p>Your API keys are also copied to <code>chrome.storage.local</code>, by connection, and the
+copy is removed when you clear a key (on <code>main</code>, not in 0.1.13). This copy is
+the first step in keeping keys off the browser's sync: sync still holds them for
+now, so this changes nothing about where they travel.</p>
+<p>One more thing is kept, in <code>chrome.storage.local</code>, which never syncs: how many
+suggestions you have applied, when you applied the first, and whether ProofKey
+has asked you to rate it (<code>src/core/review.ts</code>). It exists for one purpose —
+asking <strong>once</strong>, after at least 10 applied suggestions over at least two days,
+whether you would leave a rating in the Chrome Web Store — and it is never sent
+anywhere. Clicking <strong>Rate ProofKey</strong> opens the store's reviews page in a new
+tab; nothing else happens, and ignoring it means it is not asked again.</p>
+<p>Nothing is stored anywhere else. Uninstalling the extension removes it.</p>
+<div class="markdown-heading"><h2 class="heading-element">What ProofKey does not do</h2><a id="user-content-what-proofkey-does-not-do" class="anchor" aria-label="Permalink: What ProofKey does not do" href="#what-proofkey-does-not-do"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>No telemetry, analytics, crash reporting, or usage statistics. The one count
+described above stays on your device and is only read by ProofKey itself.</li>
+<li>No advertising, and no data sold, rented, or shared with third parties.</li>
+<li>No reading of pages you have not enabled it on.</li>
+<li>No collection of browsing history, credentials, or form data.</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Threat model</h2><a id="user-content-threat-model" class="anchor" aria-label="Permalink: Threat model" href="#threat-model"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>What ProofKey protects you from, and what it does not, in the terms
+<a href="https://www.privacyguides.org/en/basics/common-threats/" rel="nofollow">Privacy Guides uses for common threats</a>.</p>
+<p><strong>It protects against:</strong></p>
+<ul>
+<li>
+<strong>Surveillance as a business model</strong>, on the part of the tool itself. Jiru Labs
+runs no server for ProofKey: no text, key, setting or usage count reaches us,
+because there is nowhere for it to go. The code is MIT licensed, so this can
+be checked rather than taken on trust.</li>
+<li>
+<strong>Privacy from service providers</strong>, as far as you choose it. With Chrome's
+built-in model or the in-browser model, ProofKey sends your text nowhere: the
+check runs on your computer. With a llama.cpp server you host, it goes only to
+that server. Nothing in between is ours.</li>
+<li>
+<strong>Pages reading more than you meant.</strong> No site access is granted at install.
+ProofKey reads a page only where you switched it on, one site at a time.</li>
+</ul>
+<p><strong>It does not protect against:</strong></p>
+<ul>
+<li>
+<strong>The provider you pick.</strong> With an API key, the text you check goes to that
+provider, under its own privacy policy, tied to your account and billing.</li>
+<li>
+<strong>Your browser's own sync.</strong> Settings, API keys included, travel through your
+Google account's sync servers if Chrome Sync is on for extensions (see above).</li>
+<li>
+<strong>The browser and the page.</strong> Chrome's built-in model is Chrome's code; the
+site you type into already sees what you type there; another extension, or
+malware on the device, can read the same fields ProofKey does.</li>
+<li>
+<strong>Being identified.</strong> ProofKey is not an anonymity tool. A provider knows who
+holds the key, and the one model download from Hugging Face is seen by Hugging
+Face like any visit.</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Permissions, and why each exists</h2><a id="user-content-permissions-and-why-each-exists" class="anchor" aria-label="Permalink: Permissions, and why each exists" href="#permissions-and-why-each-exists"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>storage</code></td>
+<td>To keep the settings listed above on your device</td>
+</tr>
+<tr>
+<td><code>contextMenus</code></td>
+<td>To put the actions on the right-click menu</td>
+</tr>
+<tr>
+<td><code>activeTab</code></td>
+<td>To read the text you selected, on the tab you invoked it from</td>
+</tr>
+<tr>
+<td><code>scripting</code></td>
+<td>To place the assistant into the field you are typing in</td>
+</tr>
+<tr>
+<td><code>offscreen</code></td>
+<td>To run the in-browser model in a hidden extension page, if you choose that model. It reads no page and makes no request except the one download described above</td>
+</tr>
+<tr>
+<td>Host permissions</td>
+<td>Requested <strong>per site, by you</strong>, and only for the sites where you want live checking or per-action shortcuts. Not requested up front and not granted for all sites</td>
+</tr>
+</tbody>
+</table>
+<div class="markdown-heading"><h2 class="heading-element">If this ever changes</h2><a id="user-content-if-this-ever-changes" class="anchor" aria-label="Permalink: If this ever changes" href="#if-this-ever-changes"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>If Jiru Labs ever offers an optional paid or hosted feature, it would be exactly
+that — optional, off by default, and described here before it ships. The
+extension's default behaviour, as described above, is not going to start sending
+your writing somewhere else. If that ever changed, it would be a new major
+version, announced in the changelog, and it would still require you to turn it
+on.</p>
+<div class="markdown-heading"><h2 class="heading-element">Contact</h2><a id="user-content-contact" class="anchor" aria-label="Permalink: Contact" href="#contact"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Questions, or a privacy problem to report:
+<a href="https://github.com/jiru-labs/proofkey/issues">open an issue</a>, or email
+<code>help@jirulabs.com</code> if you would rather not do it in public.</p>
+<p>The extension is open source and MIT licensed. If you would rather verify this
+policy than trust it, the code is at
+<a href="https://github.com/jiru-labs/proofkey">github.com/jiru-labs/proofkey</a>.</p>
+
+    <p class="soft">The same text, with its history: <a class="link" href="https://github.com/jiru-labs/proofkey/blob/main/PRIVACY.md">PRIVACY.md on GitHub</a>.</p>
+  </section>
+
+  <footer>
+    <p>© 2026 Jiru Labs · Madrid</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

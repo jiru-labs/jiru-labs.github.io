@@ -25,4 +25,8 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://jirulabs.com/proofkey/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jirulabs.com/en/proofkey/"/>
   </url>
+  <url>
+    <loc>https://jirulabs.com/proofkey/privacy/</loc>
+    <lastmod>2026-08-19</lastmod>
+  </url>
 </urlset>
