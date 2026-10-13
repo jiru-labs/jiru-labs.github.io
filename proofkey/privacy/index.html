@@ -181,7 +181,7 @@
   </header>
 
   <section class="policy">
-<!-- from https://github.com/jiru-labs/proofkey/blob/cc35ee8/PRIVACY.md -->
+<!-- from https://github.com/jiru-labs/proofkey/blob/c0beb48/PRIVACY.md -->
 <div class="markdown-heading"><h1 class="heading-element">Privacy Policy</h1><a id="user-content-privacy-policy" class="anchor" aria-label="Permalink: Privacy Policy" href="#privacy-policy"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><strong>Last updated: 8 October 2026</strong></p>
 <p>ProofKey is a browser extension published by Jiru Labs. This policy describes
@@ -237,7 +237,10 @@ on this computer. The downloaded in-browser model never syncs.</p>
 <p>Your API keys are also copied to <code>chrome.storage.local</code>, by connection, and the
 copy is removed when you clear a key (since 0.1.14). This copy is
 the first step in keeping keys off the browser's sync: sync still holds them for
-now, so this changes nothing about where they travel.</p>
+now, so this changes nothing about where they travel. On <code>main</code> (not in 0.1.15),
+the copy is also kept when settings arriving from sync carry the mark a later
+release will write when it stops putting keys there, so a computer that
+receives those settings keeps its key instead of losing it.</p>
 <p>One more thing is kept, in <code>chrome.storage.local</code>, which never syncs: how many
 suggestions you have applied, when you applied the first, and whether ProofKey
 has asked you to rate it (<code>src/core/review.ts</code>). It exists for one purpose —
