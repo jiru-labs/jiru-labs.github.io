@@ -181,7 +181,7 @@
   </header>
 
   <section class="policy">
-<!-- from https://github.com/jiru-labs/proofkey/blob/20520c5/PRIVACY.md -->
+<!-- from https://github.com/jiru-labs/proofkey/blob/e4fd6fa/PRIVACY.md -->
 <div class="markdown-heading"><h1 class="heading-element">Privacy Policy</h1><a id="user-content-privacy-policy" class="anchor" aria-label="Permalink: Privacy Policy" href="#privacy-policy"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><strong>Last updated: 8 October 2026</strong></p>
 <p>ProofKey is a browser extension published by Jiru Labs. This policy describes
@@ -227,20 +227,23 @@ site where ProofKey is enabled.</p>
 <li>if you downloaded the in-browser model, its files, in the browser's storage
 for the extension. <strong>Remove the downloaded model</strong> in settings deletes them.</li>
 </ul>
-<p>All of the settings above — <strong>your API keys included</strong> — are kept in
-<code>chrome.storage.sync</code> (<code>src/core/storage.ts</code>). If you are signed in to the
-browser with Chrome Sync switched on for extensions, the browser copies them
-through your Google account's sync servers to your other signed-in browsers.
-That is the browser's mechanism and its provider's policy; ProofKey neither
-operates nor can read that channel. With Sync off, or not signed in, they stay
-on this computer. The downloaded in-browser model never syncs.</p>
-<p>Your API keys are also copied to <code>chrome.storage.local</code>, by connection, and the
-copy is removed when you clear a key (since 0.1.14). This copy is
-the first step in keeping keys off the browser's sync: sync still holds them for
-now, so this changes nothing about where they travel. Since 0.1.16,
-the copy is also kept when settings arriving from sync carry the mark a later
-release will write when it stops putting keys there, so a computer that
-receives those settings keeps its key instead of losing it.</p>
+<p><strong>Your API keys stay on this computer</strong> (since 0.1.19): each one is
+kept in <code>chrome.storage.local</code>, by connection, which never syncs
+(<code>src/core/storage.ts</code>). Every other setting above is kept in
+<code>chrome.storage.sync</code>. If you are signed in to the browser with Chrome Sync
+switched on for extensions, the browser copies those settings — with every API
+key emptied — through your Google account's sync servers to your other
+signed-in browsers. That is the browser's mechanism and its provider's policy;
+ProofKey neither operates nor can read that channel. With Sync off, or not
+signed in, they stay on this computer. The downloaded in-browser model never
+syncs. A key has to be entered once on each computer you use ProofKey on.</p>
+<p>Up to 0.1.18, the keys were also kept in
+<code>chrome.storage.sync</code> and travelled with the rest. The first time 0.1.19
+runs, it moves each key it finds there into <code>chrome.storage.local</code>
+and rewrites the synced settings without it, marked as holding no keys. A
+computer on 0.1.16 to 0.1.18 that receives those settings keeps its own local copy (it
+has made one since 0.1.14, and keeps it under that mark since 0.1.16) and uses
+it again once it updates; until then it reads the emptied key and asks for one.</p>
 <p>One more thing is kept, in <code>chrome.storage.local</code>, which never syncs: how many
 suggestions you have applied, when you applied the first, and whether ProofKey
 has asked you to rate it (<code>src/core/review.ts</code>). It exists for one purpose —
@@ -282,8 +285,9 @@ ProofKey reads a page only where you switched it on, one site at a time.</li>
 <strong>The provider you pick.</strong> With an API key, the text you check goes to that
 provider, under its own privacy policy, tied to your account and billing.</li>
 <li>
-<strong>Your browser's own sync.</strong> Settings, API keys included, travel through your
-Google account's sync servers if Chrome Sync is on for extensions (see above).</li>
+<strong>Your browser's own sync.</strong> Settings travel through your Google account's
+sync servers if Chrome Sync is on for extensions (see above). API keys do not
+since 0.1.19; up to 0.1.18 they did.</li>
 <li>
 <strong>The browser and the page.</strong> Chrome's built-in model is Chrome's code; the
 site you type into already sees what you type there; another extension, or
