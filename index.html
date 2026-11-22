@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#101113" media="(prefers-color-scheme: dark)">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; media-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Jiru Labs — Herramientas open source y análisis de datos</title>
-<meta name="description" content="Laboratorio independiente en Madrid. Herramientas open source para quien ejecuta agentes de IA en su propia infraestructura y análisis longitudinal del mercado residencial de Madrid.">
+<title>Jiru Labs — Software libre y análisis de datos, desde Madrid</title>
+<meta name="description" content="Laboratorio independiente en Madrid: software libre sin cuentas ni rastreo, y análisis del mercado residencial de Madrid con cifras que se sostienen.">
 <link rel="canonical" href="https://jirulabs.com/">
 <link rel="alternate" hreflang="es" href="https://jirulabs.com/">
 <link rel="alternate" hreflang="en" href="https://jirulabs.com/en/">
@@ -16,14 +16,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Jiru Labs">
 <meta property="og:locale" content="es_ES">
-<meta property="og:title" content="Jiru Labs — Herramientas open source y análisis de datos">
-<meta property="og:description" content="Laboratorio independiente en Madrid. Herramientas open source para quien ejecuta agentes de IA en su propia infraestructura y análisis longitudinal del mercado residencial de Madrid.">
+<meta property="og:title" content="Jiru Labs — Software libre y análisis de datos, desde Madrid">
+<meta property="og:description" content="Laboratorio independiente en Madrid: software libre sin cuentas ni rastreo, y análisis del mercado residencial de Madrid con cifras que se sostienen.">
 <meta property="og:url" content="https://jirulabs.com/">
 <meta property="og:image" content="https://jirulabs.com/og-es.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Herramientas, datos y proyectos libres, desde Madrid.">
+<meta property="og:image:alt" content="Software libre que no te vigila, y datos que se sostienen.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://jirulabs.com/og-es.png">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
@@ -126,7 +126,7 @@
     color:var(--ink-faint); border-left:2px solid var(--rule); padding-left:.8rem;
   }
   .cardlinks {
-    margin-top:.95rem; display:flex; flex-wrap:wrap; gap:1.1rem;
+    margin-top:.7rem; display:flex; flex-wrap:wrap; gap:.1rem 1.1rem;
     font:500 .85rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
   }
   .cardlinks a { color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; padding:.45rem 0 .2rem; }
@@ -232,42 +232,42 @@
         <a class="lang" href="/en/" hreflang="en">English</a>
       </span>
     </div>
-    <h1>Herramientas, datos y proyectos libres, desde Madrid.</h1>
-    <p class="lede">Hacemos herramientas open source para quien ejecuta agentes de IA en su propia infraestructura y análisis longitudinal de datos de mercado. Dos líneas, un mismo criterio: sin cuentas, sin rastreo, y ninguna cifra que no se sostenga.</p>
+    <h1>Software libre que no te vigila, y datos que se sostienen.</h1>
+    <p class="lede">Somos un laboratorio independiente en Madrid. Hacemos herramientas de código abierto que funcionan sin cuenta, sin rastreo y sin un servidor nuestro de por medio, y seguimos el mercado residencial de Madrid anuncio a anuncio.</p>
     <nav class="jump" aria-label="En esta página"><a href="#open-source">Proyectos</a> <a href="#principles">Principios</a> <a href="#data">Datos</a> <a href="#contact">Contacto</a></nav>
   </header>
 
   <hr class="rule">
 
   <section id="open-source">
-    <h2>Open source</h2>
+    <h2>Proyectos</h2>
     <div class="projects">
 
-      <div class="card">
-        <div class="card-top">
-          <h3>llm-usage-overlay</h3>
-          <span class="meta">Rust · Tauri 2 · MIT · Windows</span>
-        </div>
-        <p>Cuánta IA estás usando, sin darle tus datos a nadie más. Una ventanita siempre visible en Windows con tus límites y tu gasto: Claude Pro/Max, ChatGPT Plus/Pro (límites de Codex), OpenCode Go/Zen, y el gasto de las API de Anthropic y OpenAI con una clave de administrador. Cada barra proyecta adónde llegarás a este ritmo, y avisa al 80 y al 95&nbsp;%. Inicias sesión en un perfil de navegador privado de la propia app: nunca lee las cookies de tu navegador ni se hace pasar por los clientes oficiales. Sin servidor, sin telemetría.</p>
-        <p class="warn">El instalador no está firmado: Windows SmartScreen avisará la primera vez (Más información → Ejecutar de todas formas). Cada versión se compila en GitHub Actions desde el código etiquetado; compruébala con SHA256SUMS.txt o la atestación.</p>
-        <div class="cardlinks"><a href="https://github.com/jiru-labs/llm-usage-overlay/releases/latest">Descargar para Windows</a><a href="https://github.com/jiru-labs/llm-usage-overlay">Código</a></div>
-        <div class="tags"><span class="tag">llm</span><span class="tag">usage-limits</span><span class="tag">privacy</span><span class="tag">tauri</span><span class="tag">windows</span></div>
-      </div>
       <div class="card">
         <div class="card-top">
           <h3>proofkey</h3>
           <span class="meta">TypeScript · MIT</span>
         </div>
-        <p>Asistente de escritura para Chrome al estilo Grammarly, con tu propia clave de API o, sin clave, con un modelo en tu propio ordenador: el integrado de Chrome o uno que ProofKey ejecuta dentro del navegador. Sin backend, sin cuenta, sin telemetría. Probado con Gemini, xAI, OpenRouter, OpenCode Go y un servidor llama.cpp local.</p>
+        <p>Corrección y reescritura al estilo Grammarly en cualquier web, desde Chrome. Usa tu propia clave de API o, sin clave, un modelo en tu ordenador: el que trae Chrome o uno que ProofKey ejecuta dentro del navegador. Sin backend, sin cuenta, sin telemetría. Probado con Gemini, xAI, OpenRouter, OpenCode Go y un servidor llama.cpp local.</p>
         <div class="cardlinks"><a href="/proofkey/">Más sobre ProofKey</a><a href="https://chromewebstore.google.com/detail/loibjoemoahkajjnfioajcibcamhdafc">Instalar desde Chrome Web Store</a><a href="https://github.com/jiru-labs/proofkey">Código</a></div>
         <div class="tags"><span class="tag">chrome-extension</span><span class="tag">byok</span><span class="tag">llm</span><span class="tag">privacy</span><span class="tag">manifest-v3</span></div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <h3>llm-usage-overlay</h3>
+          <span class="meta">Rust · Tauri 2 · MIT · Windows</span>
+        </div>
+        <p>Cuánta IA llevas gastada, sin darle tus datos a nadie. Una ventanita siempre visible en Windows con tus límites de Claude Pro/Max, ChatGPT Plus/Pro (Codex) y OpenCode Go/Zen, y el gasto de las API de Anthropic y OpenAI (con clave de administrador). Proyecta adónde llegarás a este ritmo y avisa al 80 y al 95&nbsp;%. Inicias sesión en un perfil de navegador propio de la app: nunca lee tus cookies ni se hace pasar por los clientes oficiales. Sin servidor, sin telemetría.</p>
+        <p class="warn">El instalador no está firmado, así que la primera vez avisa Windows SmartScreen (Más información → Ejecutar de todas formas). Cada versión se compila en GitHub Actions desde el código etiquetado: puedes comprobarla con SHA256SUMS.txt o con la atestación.</p>
+        <div class="cardlinks"><a href="https://github.com/jiru-labs/llm-usage-overlay/releases/latest">Descargar para Windows</a><a href="https://github.com/jiru-labs/llm-usage-overlay">Código</a></div>
+        <div class="tags"><span class="tag">llm</span><span class="tag">usage-limits</span><span class="tag">privacy</span><span class="tag">tauri</span><span class="tag">windows</span></div>
       </div>
       <div class="card">
         <div class="card-top">
           <h3>trazos</h3>
           <span class="meta">Python · MIT</span>
         </div>
-        <p>Un archivo para toda la vida de los dibujos de alguien. Fotografías sus obras año a año y trazos las convierte en una web tranquila: una línea de tiempo con la edad con la que se hizo cada una, etiquetas, favoritos y su historia. Anónimo y fuera de buscadores y rastreadores de IA por defecto, sin scripts ni rastreadores en la web pública, y con un admin para editarla desde el navegador, sin servidor.</p>
+        <p>Un archivo para toda la vida de los dibujos de alguien. Fotografías sus obras año a año y trazos las convierte en una web tranquila: una línea de tiempo con la edad a la que hizo cada una, etiquetas, favoritos y su historia. Anónima y fuera de buscadores y de rastreadores de IA por defecto, sin scripts ni rastreadores en la parte pública, y con un admin para editarla desde el navegador, sin servidor.</p>
         <div class="cardlinks"><a href="/trazos/es/">Ver la demo</a><a href="https://github.com/jiru-labs/trazos">Código</a></div>
         <div class="tags"><span class="tag">static-site</span><span class="tag">art-archive</span><span class="tag">privacy</span><span class="tag">github-pages</span><span class="tag">no-tracking</span></div>
       </div>
@@ -284,7 +284,7 @@
         </div>
         <p>Audita ficheros de configuración MCP en busca de claves incrustadas, transportes en claro, comandos de arranque tipo <code>curl&nbsp;|&nbsp;sh</code> y permisos demasiado amplios. Lee la configuración, no los servidores. Salida SARIF.</p>
         <pre class="install"><code>pipx install mcp-config-audit</code></pre>
-        <p class="warn">Archivado: el código y el paquete de PyPI siguen publicados, pero ya no recibe cambios. PyPI es el único registro en el que se publica, siempre desde un commit etiquetado de este repositorio. Un paquete con este nombre en npm o en cualquier otro registro no es nuestro.</p>
+        <p class="warn">Ya no recibe cambios, pero el código y el paquete siguen publicados. Solo se publica en PyPI y siempre desde un commit etiquetado: un paquete con este nombre en npm o en cualquier otro registro no es nuestro.</p>
         <div class="cardlinks"><a href="https://github.com/jiru-labs/mcp-config-audit">Código</a><a href="https://pypi.org/project/mcp-config-audit/">PyPI</a></div>
         <div class="tags"><span class="tag">mcp</span><span class="tag">ai-security</span><span class="tag">static-analysis</span><span class="tag">sarif</span><span class="tag">devsecops</span></div>
       </div>
@@ -308,10 +308,10 @@
   <section id="principles">
     <h2>Principios</h2>
     <ul class="plain">
-      <li><b>Privacidad primero</b> — local primero, cero telemetría. Nada sale de tu equipo salvo que tú lo actives.</li>
-      <li><b>Cypherpunk</b> — los secretos se quedan cifrados en tu máquina; la sincronización es autoalojada o cifrada de extremo a extremo, nunca texto en claro en manos de otro.</li>
-      <li><b>Open source</b> — licencias permisivas (MIT y similares) bienvenidas; no exijo copyleft.</li>
-      <li><b>KISS</b> — keep it simple, stupid: una forma sencilla de hacer cada cosa.</li>
+      <li><b>Privacidad primero</b> — todo en local y cero telemetría: nada sale de tu equipo salvo que tú lo actives.</li>
+      <li><b>Cypherpunk</b> — los secretos se quedan cifrados en tu máquina; si algo se sincroniza, es en tu servidor o cifrado de extremo a extremo, nunca en claro en manos de otro.</li>
+      <li><b>Código abierto</b> — licencias permisivas, como MIT; no exigimos copyleft.</li>
+      <li><b>KISS</b> — una forma sencilla de hacer cada cosa, y no tres.</li>
     </ul>
     <p class="soft" style="margin-top:1.1rem; font-size:.96rem">En la práctica: nuestras herramientas nunca se hacen pasar por clientes oficiales ni leen datos de otras aplicaciones (cookies del navegador incluidas), y todo lo no oficial se documenta como no oficial.</p>
   </section>
