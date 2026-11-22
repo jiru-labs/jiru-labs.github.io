@@ -103,7 +103,7 @@
     content:"$"; color:var(--ink-faint); margin-right:.55rem; user-select:none;
   }
   .warn {
-    margin:.8rem 0 0; font:400 .84rem/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    margin:.8rem 0 0; font:400 .79rem/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
     color:var(--ink-faint); border-left:2px solid var(--rule); padding-left:.8rem;
   }
   .cardlinks {
@@ -176,6 +176,23 @@
   .demo p { margin:.6rem 0 0; font:400 .81rem/1.5 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; color:var(--ink-faint); }
   .demo .still { display:none; }
   @media (prefers-reduced-motion: reduce) { .demo video { display:none; } .demo .still { display:block; } }
+  .jump { margin:1.6rem 0 0; display:flex; flex-wrap:wrap; gap:.25rem 1.3rem;
+    font:500 .85rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; }
+  .jump a { color:var(--ink-soft); text-decoration:none; padding:.45rem 0; border-bottom:1px solid transparent; }
+  .jump a:hover { color:var(--accent); border-bottom-color:var(--accent); }
+  section[id] { scroll-margin-top:1.5rem; }
+  details.older { margin-top:1rem; }
+  details.older > summary {
+    cursor:pointer; list-style:none; display:inline-flex; align-items:center; gap:.5rem; padding:.55rem .1rem;
+    font:600 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint);
+  }
+  details.older > summary::-webkit-details-marker { display:none; }
+  details.older > summary::before { content:"▸"; transition:transform .15s; }
+  details.older[open] > summary::before { transform:rotate(90deg); }
+  details.older > summary:hover { color:var(--accent); }
+  details.older .count { background:var(--chip); border-radius:999px; padding:.2rem .5rem; letter-spacing:0; }
+  details.older .projects { margin-top:.6rem; }
   ul.plain, ol.plain { margin:0; padding-left:1.2rem; }
   ul.plain li, ol.plain li { margin:0 0 .6rem; color:var(--ink-soft); }
   .kv { margin:0 0 1.1rem; }

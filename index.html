@@ -122,7 +122,7 @@
     content:"$"; color:var(--ink-faint); margin-right:.55rem; user-select:none;
   }
   .warn {
-    margin:.8rem 0 0; font:400 .84rem/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    margin:.8rem 0 0; font:400 .79rem/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
     color:var(--ink-faint); border-left:2px solid var(--rule); padding-left:.8rem;
   }
   .cardlinks {
@@ -195,6 +195,23 @@
   .demo p { margin:.6rem 0 0; font:400 .81rem/1.5 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; color:var(--ink-faint); }
   .demo .still { display:none; }
   @media (prefers-reduced-motion: reduce) { .demo video { display:none; } .demo .still { display:block; } }
+  .jump { margin:1.6rem 0 0; display:flex; flex-wrap:wrap; gap:.25rem 1.3rem;
+    font:500 .85rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; }
+  .jump a { color:var(--ink-soft); text-decoration:none; padding:.45rem 0; border-bottom:1px solid transparent; }
+  .jump a:hover { color:var(--accent); border-bottom-color:var(--accent); }
+  section[id] { scroll-margin-top:1.5rem; }
+  details.older { margin-top:1rem; }
+  details.older > summary {
+    cursor:pointer; list-style:none; display:inline-flex; align-items:center; gap:.5rem; padding:.55rem .1rem;
+    font:600 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint);
+  }
+  details.older > summary::-webkit-details-marker { display:none; }
+  details.older > summary::before { content:"▸"; transition:transform .15s; }
+  details.older[open] > summary::before { transform:rotate(90deg); }
+  details.older > summary:hover { color:var(--accent); }
+  details.older .count { background:var(--chip); border-radius:999px; padding:.2rem .5rem; letter-spacing:0; }
+  details.older .projects { margin-top:.6rem; }
   ul.plain, ol.plain { margin:0; padding-left:1.2rem; }
   ul.plain li, ol.plain li { margin:0 0 .6rem; color:var(--ink-soft); }
   .kv { margin:0 0 1.1rem; }
@@ -217,11 +234,12 @@
     </div>
     <h1>Herramientas, datos y proyectos libres, desde Madrid.</h1>
     <p class="lede">Hacemos herramientas open source para quien ejecuta agentes de IA en su propia infraestructura y análisis longitudinal de datos de mercado. Dos líneas, un mismo criterio: sin cuentas, sin rastreo, y ninguna cifra que no se sostenga.</p>
+    <nav class="jump" aria-label="En esta página"><a href="#open-source">Proyectos</a> <a href="#principles">Principios</a> <a href="#data">Datos</a> <a href="#contact">Contacto</a></nav>
   </header>
 
   <hr class="rule">
 
-  <section>
+  <section id="open-source">
     <h2>Open source</h2>
     <div class="projects">
 
@@ -253,6 +271,11 @@
         <div class="cardlinks"><a href="/trazos/es/">Ver la demo</a><a href="https://github.com/jiru-labs/trazos">Código</a></div>
         <div class="tags"><span class="tag">static-site</span><span class="tag">art-archive</span><span class="tag">privacy</span><span class="tag">github-pages</span><span class="tag">no-tracking</span></div>
       </div>
+
+    </div>
+    <details class="older">
+      <summary>Proyectos archivados <span class="count">2</span></summary>
+      <div class="projects">
       <div class="card">
         <div class="card-top">
           <h3>mcp-config-audit</h3>
@@ -275,14 +298,14 @@
         <div class="cardlinks"><a href="https://github.com/jiru-labs/epub2audiobook/blob/main/FINDINGS.md">Hallazgos (en inglés)</a><a href="https://github.com/jiru-labs/epub2audiobook">Código</a></div>
         <div class="tags"><span class="tag">text-to-speech</span><span class="tag">audiobook</span><span class="tag">voice-conversion</span><span class="tag">gemini</span><span class="tag">epub</span></div>
       </div>
-
-    </div>
+      </div>
+    </details>
     <p class="soft" style="margin-top:1.3rem; font-size:.96rem">Todo el código en <a class="link" href="https://github.com/jiru-labs">github.com/jiru-labs</a>.</p>
   </section>
 
   <hr class="rule">
 
-  <section>
+  <section id="principles">
     <h2>Principios</h2>
     <ul class="plain">
       <li><b>Privacidad primero</b> — local primero, cero telemetría. Nada sale de tu equipo salvo que tú lo actives.</li>
@@ -295,7 +318,7 @@
 
   <hr class="rule">
 
-  <section>
+  <section id="data">
     <h2>Análisis de datos — mercado residencial de Madrid</h2>
     <p class="soft">Seguimos a diario la oferta residencial de Madrid y su área metropolitana, anuncio por anuncio, desde que se publica hasta que desaparece. De esa serie salen cifras que un informe de precio medio no puede dar: <strong>cuánto tarda de verdad en venderse</strong> cada zona, <strong>qué proporción de vendedores acaba bajando el precio</strong>, cuánto lo baja y cuánto tarda en hacerlo.</p>
     <p class="soft">El tiempo en mercado se estima con análisis de supervivencia: los anuncios que siguen activos no se descartan, informan el cálculo hasta la última fecha observada. Es lo que evita el sesgo optimista de promediar solo lo que ya se vendió. Los agregados se contrastan con la estadística oficial de compraventas del INE para la provincia.</p>
@@ -315,7 +338,7 @@
 
   <hr class="rule">
 
-  <section>
+  <section id="contact">
     <h2>Contacto</h2>
     <p>Para pedir un extracto de una zona, comentar un encargo o cualquier cosa sobre los proyectos: <a class="link" href="mailto:info@jirulabs.com">info@jirulabs.com</a></p>
     <p class="signature">Madrid, España</p>
