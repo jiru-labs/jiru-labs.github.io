@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#101113" media="(prefers-color-scheme: dark)">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; media-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Política de privacidad — Asistente de oficina</title>
 <meta name="description" content="Qué datos de Google usa el Asistente de oficina, para qué, dónde se guardan y con quién se comparten.">
@@ -171,11 +171,13 @@
   .cta a.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
   .cta a:hover { border-color:var(--accent); }
   .demo { margin:2.4rem 0 0; }
-  .demo img {
+  .demo img, .demo video {
     display:block; width:100%; height:auto; border:1px solid var(--rule); border-radius:11px;
     background:var(--surface);
   }
   .demo p { margin:.6rem 0 0; font:400 .81rem/1.5 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; color:var(--ink-faint); }
+  .demo .still { display:none; }
+  @media (prefers-reduced-motion: reduce) { .demo video { display:none; } .demo .still { display:block; } }
   ul.plain, ol.plain { margin:0; padding-left:1.2rem; }
   ul.plain li, ol.plain li { margin:0 0 .6rem; color:var(--ink-soft); }
   .kv { margin:0 0 1.1rem; }
