@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>ProofKey — Alternativa privada a Grammarly, con tu propia clave</title>
+<meta name="description" content="Extensión de Chrome privada, gratuita y de código abierto: corrección gramatical en línea y reescrituras, enviadas solo al proveedor de IA que configures con tu propia clave, o a un modelo local. Sin backend, sin cuenta, sin telemetría.">
+<link rel="canonical" href="https://jirulabs.com/proofkey/">
+<link rel="alternate" hreflang="es" href="https://jirulabs.com/proofkey/">
+<link rel="alternate" hreflang="en" href="https://jirulabs.com/en/proofkey/">
+<link rel="alternate" hreflang="x-default" href="https://jirulabs.com/en/proofkey/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Patricio Llorens">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="ProofKey — Alternativa privada a Grammarly, con tu propia clave">
+<meta property="og:description" content="Extensión de Chrome privada, gratuita y de código abierto: corrección gramatical en línea y reescrituras, enviadas solo al proveedor de IA que configures con tu propia clave, o a un modelo local. Sin backend, sin cuenta, sin telemetría.">
+<meta property="og:url" content="https://jirulabs.com/proofkey/">
+<meta property="og:image" content="https://jirulabs.com/og-es.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ayuda privada para escribir, al estilo Grammarly. Tu clave, tu proveedor, tu texto.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jirulabs.com/og-es.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico" sizes="32x32">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"ProofKey","url":"https://jirulabs.com/proofkey/","description":"Extensión de Chrome privada, gratuita y de código abierto: corrección gramatical en línea y reescrituras, enviadas solo al proveedor de IA que configures con tu propia clave, o a un modelo local. Sin backend, sin cuenta, sin telemetría.","inLanguage":"es","applicationCategory":"BrowserApplication","operatingSystem":"Chrome","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"license":"https://opensource.org/licenses/MIT","installUrl":"https://chromewebstore.google.com/detail/loibjoemoahkajjnfioajcibcamhdafc","downloadUrl":"https://chromewebstore.google.com/detail/loibjoemoahkajjnfioajcibcamhdafc","sameAs":["https://chromewebstore.google.com/detail/loibjoemoahkajjnfioajcibcamhdafc","https://github.com/jiru-labs/proofkey"],"image":"https://jirulabs.com/proofkey-icon-512.png","screenshot":["https://jirulabs.com/proofkey-screenshot-1.png","https://jirulabs.com/proofkey-screenshot-2.png","https://jirulabs.com/proofkey-screenshot-3.png","https://jirulabs.com/proofkey-screenshot-4.png"],"publisher":{"@type":"Person","@id":"https://jirulabs.com/#person","name":"Patricio Llorens","url":"https://jirulabs.com/"}}</script>
+<style>
+  :root {
+    --bg:#fbfaf8; --surface:#ffffff; --ink:#16171a; --ink-soft:#55585f; --ink-faint:#8b8f97;
+    --rule:#e4e2dd; --accent:#1f5f4f; --accent-soft:#eef3f1; --chip:#f2f1ed; --code:#f5f4f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:#101113; --surface:#17181b; --ink:#ecedf0; --ink-soft:#a9adb5; --ink-faint:#74787f;
+      --rule:#2a2c31; --accent:#6fbfa5; --accent-soft:#16211e; --chip:#1e2024; --code:#1b1d21;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:#101113; --surface:#17181b; --ink:#ecedf0; --ink-soft:#a9adb5; --ink-faint:#74787f;
+    --rule:#2a2c31; --accent:#6fbfa5; --accent-soft:#16211e; --chip:#1e2024; --code:#1b1d21;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin:0; background:var(--bg); color:var(--ink);
+    font:400 17px/1.65 ui-serif, Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width:47rem; margin:0 auto; padding:0 1.5rem; }
+
+  header { padding:4.5rem 0 0; }
+  .topbar { display:flex; align-items:baseline; justify-content:space-between; gap:1rem; }
+  .brand {
+    font:600 1.05rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    letter-spacing:.14em; text-transform:uppercase;
+  }
+  .brand span { color:var(--accent); }
+  .lang {
+    font:400 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint); text-decoration:none; letter-spacing:.06em;
+    border-bottom:1px solid var(--rule); padding-bottom:2px;
+  }
+  .lang:hover { color:var(--accent); border-bottom-color:var(--accent); }
+
+  h1 {
+    margin:2.5rem 0 0; font-size:clamp(1.65rem,5vw,2.2rem); line-height:1.24;
+    font-weight:500; letter-spacing:-.012em; max-width:26ch;
+  }
+  .lede { margin:1.15rem 0 0; font-size:1.07rem; color:var(--ink-soft); max-width:62ch; }
+
+  hr.rule { height:1px; background:var(--rule); border:0; margin:3.25rem 0; }
+
+  h2 {
+    font:600 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 1.5rem;
+  }
+  p { margin:0 0 1.1rem; }
+  p:last-child { margin-bottom:0; }
+  .soft { color:var(--ink-soft); }
+
+  .projects { display:grid; gap:1rem; }
+  .card { background:var(--surface); border:1px solid var(--rule); border-radius:11px; padding:1.3rem 1.4rem; }
+  .card-top { display:flex; flex-wrap:wrap; align-items:baseline; gap:.6rem; margin-bottom:.5rem; }
+  .card h3 { margin:0; font-size:1.04rem; font-weight:600; }
+  .meta {
+    font:400 .76rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint); letter-spacing:.02em;
+  }
+  .archived {
+    font:500 .7rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint); border:1px solid var(--rule); border-radius:5px; padding:.25rem .45rem;
+    text-transform:uppercase; letter-spacing:.06em;
+  }
+  .card p { margin:0; font-size:.98rem; color:var(--ink-soft); }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size:.88em; background:var(--code); padding:.1em .35em; border-radius:4px;
+  }
+  pre.install {
+    margin:.95rem 0 0; background:var(--code); border:1px solid var(--rule); border-radius:7px;
+    padding:.7rem .85rem; overflow-x:auto;
+    font:400 .86rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color:var(--ink);
+  }
+  pre.install code { background:none; padding:0; font-size:1em; }
+  pre.install::before {
+    content:"$"; color:var(--ink-faint); margin-right:.55rem; user-select:none;
+  }
+  .warn {
+    margin:.8rem 0 0; font:400 .84rem/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint); border-left:2px solid var(--rule); padding-left:.8rem;
+  }
+  .cardlinks {
+    margin-top:.95rem; display:flex; flex-wrap:wrap; gap:1.1rem;
+    font:500 .85rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+  }
+  .cardlinks a { color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; }
+  .cardlinks a:hover { border-bottom-color:var(--accent); }
+
+  .tags { margin-top:.9rem; display:flex; flex-wrap:wrap; gap:.35rem; }
+  .tag {
+    font:400 .72rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    background:var(--chip); color:var(--ink-faint); padding:.35rem .55rem; border-radius:5px;
+  }
+
+  .figures {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr)); gap:1px;
+    background:var(--rule); border:1px solid var(--rule); border-radius:10px;
+    overflow:hidden; margin-top:1.5rem;
+  }
+  .fig { background:var(--surface); padding:1.2rem 1.1rem; }
+  .fig b {
+    display:block; font:600 1.45rem/1.1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    letter-spacing:-.02em; font-variant-numeric:tabular-nums;
+  }
+  .fig span {
+    display:block; margin-top:.35rem;
+    font:400 .81rem/1.4 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint);
+  }
+  .asof {
+    margin:.75rem 0 0;
+    font:400 .81rem/1.5 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint);
+  }
+
+  .note {
+    background:var(--accent-soft); border-left:2px solid var(--accent);
+    padding:1.05rem 1.2rem; border-radius:0 8px 8px 0; font-size:.96rem;
+    color:var(--ink-soft); margin-top:1.5rem;
+  }
+
+  a.link {
+    color:var(--accent); text-decoration:none;
+    border-bottom:1px solid color-mix(in srgb, var(--accent) 35%, transparent); font-weight:500;
+  }
+  a.link:hover { border-bottom-color:var(--accent); }
+  .signature { margin-top:1.1rem; font-size:.96rem; color:var(--ink-faint); }
+
+  footer {
+    margin-top:4rem; padding:2rem 0 3.5rem; border-top:1px solid var(--rule);
+    font:400 .82rem/1.6 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint);
+  }
+  footer p { margin:0 0 .7rem; max-width:64ch; }
+
+  .cta { margin:1.6rem 0 0; display:flex; flex-wrap:wrap; gap:.7rem; }
+  .cta a {
+    display:inline-block; text-decoration:none; border-radius:8px; padding:.7rem 1.05rem;
+    font:500 .92rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    border:1px solid var(--rule); color:var(--ink);
+  }
+  .cta a.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .cta a:hover { border-color:var(--accent); }
+  .demo { margin:2.4rem 0 0; }
+  .demo img {
+    display:block; width:100%; height:auto; border:1px solid var(--rule); border-radius:11px;
+    background:var(--surface);
+  }
+  .demo p { margin:.6rem 0 0; font:400 .81rem/1.5 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; color:var(--ink-faint); }
+  ul.plain, ol.plain { margin:0; padding-left:1.2rem; }
+  ul.plain li, ol.plain li { margin:0 0 .6rem; color:var(--ink-soft); }
+  .kv { margin:0 0 1.1rem; }
+  .kv b { font:600 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:.4rem; }
+  .crumb { font:400 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; color:var(--ink-faint); text-decoration:none; }
+  .crumb:hover { color:var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="topbar">
+      <a class="crumb" href="/">Patricio Llorens /</a>
+      <a class="lang" href="/en/proofkey/" hreflang="en">English</a>
+    </div>
+    <h1>Ayuda privada para escribir, al estilo Grammarly. Tu clave, tu proveedor, tu texto.</h1>
+    <p class="lede">ProofKey es una extensión de Chrome gratuita y de código abierto. Subraya los errores mientras escribes y reescribe a petición, como hace Grammarly. La diferencia es adónde va el texto: solo al proveedor de IA que configures con tu propia clave de API, o a un modelo que corra en tu propia máquina. En Google Chrome no necesita ninguna de las dos cosas: arranca con el modelo que Chrome guarda en tu ordenador, sin clave y sin cuenta. No hay ningún servidor mío en medio.</p>
+    <div class="cta">
+      <a class="primary" href="https://chromewebstore.google.com/detail/loibjoemoahkajjnfioajcibcamhdafc">Instalar desde Chrome Web Store</a>
+      <a href="https://github.com/jiru-labs/proofkey">Leer el código en GitHub</a>
+    </div>
+    <div class="demo">
+      <img src="/proofkey-demo.gif" width="960" height="560" alt="Un borrador escrito en un compositor; aparecen subrayados; se aplica una corrección desde la tarjeta; un atajo de teclado corrige el resto." loading="lazy">
+      <p>Grabado contra el código publicado con correcciones enlatadas, sin clave. En un sitio real las sugerencias vienen del modelo que hayas elegido.</p>
+    </div>
+  </header>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Qué hace</h2>
+    <ul class="plain">
+      <li>Subraya errores de gramática, ortografía y estilo mientras escribes, con un contador.</li>
+      <li>Una tarjeta en cada subrayado: aplicar la corrección, pedir al modelo que la explique, ignorarla o añadir la palabra a tu diccionario.</li>
+      <li>Nueve acciones sobre el texto seleccionado, desde el menú contextual o un atajo: corregir gramática, mejorar la redacción, hacerlo profesional, hacerlo cercano, simplificar, resumir, ampliar, convertir en viñetas, traducir.</li>
+      <li>Un perfil de escritura que el modelo ve en cada petición: tu guía de estilo, palabras que nunca debe marcar, tu lengua materna, el idioma de las explicaciones.</li>
+      <li>Un proveedor de respaldo, desde la 0.1.26: marca Backup en un segundo proveedor, un modelo local detrás de una clave en la nube o al revés, y ProofKey lo prueba cuando el activo falla, y te dice cuál falló.</li>
+    </ul>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Dónde funciona hoy</h2>
+    <p class="soft">Todo lo de esta lista se probó a mano, en un navegador real, sobre una versión publicada. El resto está sin probar, que significa que nadie lo ha comprobado, no que esté roto.</p>
+    <div class="kv"><b>Sitios</b>
+      <p class="soft">WhatsApp Web, Gmail, Telegram Web, Outlook y Hotmail, Tuta, Reddit, X.</p>
+      <p class="soft">iCloud Mail e Infomaniak Mail funcionan tras permitir un origen extra, porque su editor vive dentro de un marco en otro dominio. ProofKey ofrece ese origen cuando el cursor entra ahí.</p>
+      <p class="soft">Google Docs no está soportado: pinta el texto en un canvas y no hay nada que subrayar.</p>
+    </div>
+    <div class="kv"><b>Proveedores</b>
+      <p class="soft">Sin clave: el modelo integrado de Chrome (Gemini Nano), para la corrección en vivo y Fix grammar, medido en Google Chrome 153 en un portátil. Brave lo desactiva, así que allí ProofKey puede ejecutar un modelo dentro del navegador (Qwen3.5 4B en la GPU, con WebGPU): medido en Brave en Windows con una GPU AMD de 8 GB, sacó 13,0/14 en la corrección en vivo, lo mismo que el de Chrome. Se le ofrecen la corrección en vivo, Fix grammar, las viñetas y Translate.</p>
+      <p class="soft">Medidos con claves reales: Google Gemini, xAI (Grok), OpenRouter, OpenCode Go. Medido en local: un servidor llama.cpp con tres modelos de principio a fin.</p>
+      <p class="soft">Los otros 31 presets, Anthropic, OpenAI, Mistral, Groq, Ollama y el resto, recorren el mismo código que algo ya probado, pero nadie los ha ejecutado todavía.</p>
+    </div>
+    <p><a class="link" href="https://github.com/jiru-labs/proofkey/blob/main/COMPATIBILITY.md">La tabla completa, con la evidencia de cada fila</a></p>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Cómo empezar</h2>
+    <p class="soft">En Google Chrome no hay nada en lo que registrarse. Settings se abre al instalar, con el modelo integrado de Chrome ya elegido.</p>
+    <ol class="plain">
+      <li>En la tarjeta Chrome built-in AI, pulsa Download model. Chrome lo descarga una vez, unos 4 GB.</li>
+      <li>Cuando la tarjeta diga Ready, abre cualquier sitio con un cuadro de texto, permite ProofKey en él desde el botón de la barra y escribe una frase con errores.</li>
+    </ol>
+    <p class="soft">Ese modelo es más pequeño que los de la nube, así que ProofKey le ofrece la corrección en vivo y Fix grammar, las dos que salieron bien en las mediciones, y guarda el resto de acciones para un proveedor con clave. En Brave, pulsa Run a model inside this browser en la misma tarjeta: una descarga de 2,4 GB desde huggingface.co, que empieza con su propio botón, y necesita una GPU con unos 4 GB de memoria. Para todas las acciones, añade una clave de API: con una clave gratuita de Gemini en Google AI Studio lleva unos dos minutos, y para un uso normal la cuota gratuita suele bastar.</p>
+    <ol class="plain">
+      <li>Abre Google AI Studio, entra con cualquier cuenta de Google y pulsa Create API key.</li>
+      <li>En Chrome, pulsa el icono de ProofKey, después Settings, y elige Google Gemini en la lista de proveedores.</li>
+      <li>Pega la clave y guarda: el modelo ya viene puesto, gemini-3.5-flash-lite.</li>
+      <li>Abre cualquier sitio con un cuadro de texto, permite ProofKey en él desde el botón de la barra y escribe una frase con errores.</li>
+    </ol>
+    <div class="note">
+      <p>Con una clave gratuita el proveedor puede usar lo que envías para mejorar sus modelos. Lee las condiciones del proveedor que elijas antes de pegar nada sensible.</p>
+      <p>Cuando se agota el cupo diario, la corrección en vivo se queda en silencio en lugar de mostrar un error. Las acciones sí te dicen qué ha fallado.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Privacidad, en claro</h2>
+    <ul class="plain">
+      <li>ProofKey no tiene backend. Tu texto va de tu navegador directamente al endpoint que hayas configurado, y a ningún otro sitio. Apúntalo a un modelo local y nada sale de tu máquina.</li>
+      <li>Con el modelo integrado de Chrome, ProofKey no hace ninguna petición: la corrección ocurre en tu ordenador. Con el modelo dentro del navegador, la única petición es la descarga que tú inicias; después, las correcciones no hacen ninguna.</li>
+      <li>Sin cuenta, sin registro, sin telemetría, sin analítica. Tu clave se guarda en el almacenamiento de extensiones de tu navegador y solo se envía a tu proveedor.</li>
+      <li>El acceso a cada sitio lo pides tú, sitio a sitio. Ni por adelantado, ni para todos.</li>
+      <li>Con cualquier otro proveedor, tu texto queda sujeto a su política de privacidad. Varían muchísimo en retención y entrenamiento, y conviene leerla antes.</li>
+    </ul>
+    <p style="margin-top:1.1rem"><a class="link" href="/proofkey/privacy/">La política de privacidad completa</a></p>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Estado real</h2>
+    <p class="soft">Es una versión temprana. Lo construido es más grande que lo confirmado a mano, y el repositorio mantiene las dos cosas separadas: lo afirma una prueba automática, lo ejecutó un mantenedor, lo reportó un usuario, o nadie lo ha intentado. Una fila solo se mueve cuando hay un enlace que señalar.</p>
+    <p class="soft">Si se te rompe, un issue sirve mucho más que un comentario: <a class="link" href="https://github.com/jiru-labs/proofkey/issues">GitHub Issues</a></p>
+    <p class="signature">Licencia MIT. Hecho por Patricio Llorens en Madrid.</p>
+  </section>
+
+  <footer>
+    <p>© 2026 Patricio Llorens · Madrid</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

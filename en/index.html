@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Patricio Llorens — Open-source tools and data analysis</title>
+<meta name="description" content="Patricio Llorens, in Madrid. Open-source tooling for people who run AI agents on their own infrastructure and longitudinal analysis of the Madrid residential market.">
+<link rel="canonical" href="https://jirulabs.com/en/">
+<link rel="alternate" hreflang="es" href="https://jirulabs.com/">
+<link rel="alternate" hreflang="en" href="https://jirulabs.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://jirulabs.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Patricio Llorens">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Patricio Llorens — Open-source tools and data analysis">
+<meta property="og:description" content="Patricio Llorens, in Madrid. Open-source tooling for people who run AI agents on their own infrastructure and longitudinal analysis of the Madrid residential market.">
+<meta property="og:url" content="https://jirulabs.com/en/">
+<meta property="og:image" content="https://jirulabs.com/og-en.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tools, data and free projects, from Madrid.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jirulabs.com/og-en.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico" sizes="32x32">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://jirulabs.com/#person","name":"Patricio Llorens","url":"https://jirulabs.com/","email":"info@jirulabs.com","address":{"@type":"PostalAddress","addressLocality":"Madrid","addressCountry":"ES"},"sameAs":["https://github.com/jiru-labs"]},{"@type":"WebSite","@id":"https://jirulabs.com/#website","url":"https://jirulabs.com/","name":"Patricio Llorens","inLanguage":["es","en"],"publisher":{"@id":"https://jirulabs.com/#person"}}]}</script>
+<style>
+  :root {
+    --bg:#fbfaf8; --surface:#ffffff; --ink:#16171a; --ink-soft:#55585f; --ink-faint:#8b8f97;
+    --rule:#e4e2dd; --accent:#1f5f4f; --accent-soft:#eef3f1; --chip:#f2f1ed; --code:#f5f4f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:#101113; --surface:#17181b; --ink:#ecedf0; --ink-soft:#a9adb5; --ink-faint:#74787f;
+      --rule:#2a2c31; --accent:#6fbfa5; --accent-soft:#16211e; --chip:#1e2024; --code:#1b1d21;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:#101113; --surface:#17181b; --ink:#ecedf0; --ink-soft:#a9adb5; --ink-faint:#74787f;
+    --rule:#2a2c31; --accent:#6fbfa5; --accent-soft:#16211e; --chip:#1e2024; --code:#1b1d21;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin:0; background:var(--bg); color:var(--ink);
+    font:400 17px/1.65 ui-serif, Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width:47rem; margin:0 auto; padding:0 1.5rem; }
+
+  header { padding:4.5rem 0 0; }
+  .topbar { display:flex; align-items:baseline; justify-content:space-between; gap:1rem; }
+  .brand {
+    font:600 1.05rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    letter-spacing:.14em; text-transform:uppercase;
+  }
+  .brand span { color:var(--accent); }
+  .lang {
+    font:400 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint); text-decoration:none; letter-spacing:.06em;
+    border-bottom:1px solid var(--rule); padding-bottom:2px;
+  }
+  .lang:hover { color:var(--accent); border-bottom-color:var(--accent); }
+
+  h1 {
+    margin:2.5rem 0 0; font-size:clamp(1.65rem,5vw,2.2rem); line-height:1.24;
+    font-weight:500; letter-spacing:-.012em; max-width:26ch;
+  }
+  .lede { margin:1.15rem 0 0; font-size:1.07rem; color:var(--ink-soft); max-width:62ch; }
+
+  hr.rule { height:1px; background:var(--rule); border:0; margin:3.25rem 0; }
+
+  h2 {
+    font:600 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 1.5rem;
+  }
+  p { margin:0 0 1.1rem; }
+  p:last-child { margin-bottom:0; }
+  .soft { color:var(--ink-soft); }
+
+  .projects { display:grid; gap:1rem; }
+  .card { background:var(--surface); border:1px solid var(--rule); border-radius:11px; padding:1.3rem 1.4rem; }
+  .card-top { display:flex; flex-wrap:wrap; align-items:baseline; gap:.6rem; margin-bottom:.5rem; }
+  .card h3 { margin:0; font-size:1.04rem; font-weight:600; }
+  .meta {
+    font:400 .76rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint); letter-spacing:.02em;
+  }
+  .archived {
+    font:500 .7rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint); border:1px solid var(--rule); border-radius:5px; padding:.25rem .45rem;
+    text-transform:uppercase; letter-spacing:.06em;
+  }
+  .card p { margin:0; font-size:.98rem; color:var(--ink-soft); }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size:.88em; background:var(--code); padding:.1em .35em; border-radius:4px;
+  }
+  pre.install {
+    margin:.95rem 0 0; background:var(--code); border:1px solid var(--rule); border-radius:7px;
+    padding:.7rem .85rem; overflow-x:auto;
+    font:400 .86rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color:var(--ink);
+  }
+  pre.install code { background:none; padding:0; font-size:1em; }
+  pre.install::before {
+    content:"$"; color:var(--ink-faint); margin-right:.55rem; user-select:none;
+  }
+  .warn {
+    margin:.8rem 0 0; font:400 .84rem/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint); border-left:2px solid var(--rule); padding-left:.8rem;
+  }
+  .cardlinks {
+    margin-top:.95rem; display:flex; flex-wrap:wrap; gap:1.1rem;
+    font:500 .85rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+  }
+  .cardlinks a { color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; }
+  .cardlinks a:hover { border-bottom-color:var(--accent); }
+
+  .tags { margin-top:.9rem; display:flex; flex-wrap:wrap; gap:.35rem; }
+  .tag {
+    font:400 .72rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    background:var(--chip); color:var(--ink-faint); padding:.35rem .55rem; border-radius:5px;
+  }
+
+  .figures {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr)); gap:1px;
+    background:var(--rule); border:1px solid var(--rule); border-radius:10px;
+    overflow:hidden; margin-top:1.5rem;
+  }
+  .fig { background:var(--surface); padding:1.2rem 1.1rem; }
+  .fig b {
+    display:block; font:600 1.45rem/1.1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    letter-spacing:-.02em; font-variant-numeric:tabular-nums;
+  }
+  .fig span {
+    display:block; margin-top:.35rem;
+    font:400 .81rem/1.4 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint);
+  }
+  .asof {
+    margin:.75rem 0 0;
+    font:400 .81rem/1.5 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint);
+  }
+
+  .note {
+    background:var(--accent-soft); border-left:2px solid var(--accent);
+    padding:1.05rem 1.2rem; border-radius:0 8px 8px 0; font-size:.96rem;
+    color:var(--ink-soft); margin-top:1.5rem;
+  }
+
+  a.link {
+    color:var(--accent); text-decoration:none;
+    border-bottom:1px solid color-mix(in srgb, var(--accent) 35%, transparent); font-weight:500;
+  }
+  a.link:hover { border-bottom-color:var(--accent); }
+  .signature { margin-top:1.1rem; font-size:.96rem; color:var(--ink-faint); }
+
+  footer {
+    margin-top:4rem; padding:2rem 0 3.5rem; border-top:1px solid var(--rule);
+    font:400 .82rem/1.6 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink-faint);
+  }
+  footer p { margin:0 0 .7rem; max-width:64ch; }
+
+  .cta { margin:1.6rem 0 0; display:flex; flex-wrap:wrap; gap:.7rem; }
+  .cta a {
+    display:inline-block; text-decoration:none; border-radius:8px; padding:.7rem 1.05rem;
+    font:500 .92rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+    border:1px solid var(--rule); color:var(--ink);
+  }
+  .cta a.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .cta a:hover { border-color:var(--accent); }
+  .demo { margin:2.4rem 0 0; }
+  .demo img {
+    display:block; width:100%; height:auto; border:1px solid var(--rule); border-radius:11px;
+    background:var(--surface);
+  }
+  .demo p { margin:.6rem 0 0; font:400 .81rem/1.5 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; color:var(--ink-faint); }
+  ul.plain, ol.plain { margin:0; padding-left:1.2rem; }
+  ul.plain li, ol.plain li { margin:0 0 .6rem; color:var(--ink-soft); }
+  .kv { margin:0 0 1.1rem; }
+  .kv b { font:600 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:.4rem; }
+  .crumb { font:400 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; color:var(--ink-faint); text-decoration:none; }
+  .crumb:hover { color:var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="topbar">
+      <div class="brand">Patricio&thinsp;<span>Llorens</span></div>
+      <a class="lang" href="/" hreflang="es">Español</a>
+    </div>
+    <h1>Tools, data and free projects, from Madrid.</h1>
+    <p class="lede">I build open-source tooling for people who run AI agents on their own infrastructure, and do longitudinal analysis of market data. Two lines of work, one standard: no accounts, no tracking, and no number that doesn't hold up.</p>
+  </header>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Open source</h2>
+    <div class="projects">
+
+      <div class="card">
+        <div class="card-top">
+          <h3>llm-usage-overlay</h3>
+          <span class="meta">Rust · Tauri 2 · MIT · Windows</span>
+        </div>
+        <p>Know how much AI you're using without handing your data to anyone else. A small always-on-top Windows overlay with your limits and spend: Claude Pro/Max, ChatGPT Plus/Pro (Codex limits), OpenCode Go/Zen, and Anthropic and OpenAI API spend with an admin key. Each bar projects where you'll be at this pace, and it notifies you at 80 and 95&nbsp;%. You sign in inside the app's own private browser profile: it never reads your browser's cookies or impersonates official clients. No server, no telemetry.</p>
+        <p class="warn">The installer is not code-signed, so Windows SmartScreen warns the first time (More info → Run anyway). Every release is built by GitHub Actions from the tagged source; check it against SHA256SUMS.txt or the build attestation.</p>
+        <div class="cardlinks"><a href="https://github.com/nyakojiru/llm-usage-overlay/releases/latest">Download for Windows</a><a href="https://github.com/nyakojiru/llm-usage-overlay">Source</a></div>
+        <div class="tags"><span class="tag">llm</span><span class="tag">usage-limits</span><span class="tag">privacy</span><span class="tag">tauri</span><span class="tag">windows</span></div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <h3>proofkey</h3>
+          <span class="meta">TypeScript · MIT</span>
+        </div>
+        <p>Grammarly-style writing assistant for Chrome that uses your own API key, or a model on your own computer with no key: Chrome's built-in one, or one ProofKey runs inside the browser. No backend, no account, no telemetry. Tested with Gemini, xAI, OpenRouter, OpenCode Go and a local llama.cpp server.</p>
+        <div class="cardlinks"><a href="/en/proofkey/">More about ProofKey</a><a href="https://chromewebstore.google.com/detail/loibjoemoahkajjnfioajcibcamhdafc">Install from the Chrome Web Store</a><a href="https://github.com/jiru-labs/proofkey">Source</a></div>
+        <div class="tags"><span class="tag">chrome-extension</span><span class="tag">byok</span><span class="tag">llm</span><span class="tag">privacy</span><span class="tag">manifest-v3</span></div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <h3>mcp-config-audit</h3>
+          <span class="meta">Python · MIT</span>
+          <span class="archived">Archived</span>
+        </div>
+        <p>Audits MCP configuration files for hardcoded keys, plaintext transports, <code>curl&nbsp;|&nbsp;sh</code> launch commands and over-broad permissions. It reads the configuration, not the servers. SARIF output.</p>
+        <pre class="install"><code>pipx install mcp-config-audit</code></pre>
+        <p class="warn">Archived: the code and the PyPI package stay published, but it no longer gets changes. PyPI is the only registry it is published to, always from a tagged commit in this repository. A package of this name on npm or any other registry is not mine.</p>
+        <div class="cardlinks"><a href="https://github.com/jiru-labs/mcp-config-audit">Source</a><a href="https://pypi.org/project/mcp-config-audit/">PyPI</a></div>
+        <div class="tags"><span class="tag">mcp</span><span class="tag">ai-security</span><span class="tag">static-analysis</span><span class="tag">sarif</span><span class="tag">devsecops</span></div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <h3>epub2audiobook</h3>
+          <span class="meta">Python · MIT</span>
+          <span class="archived">Archived</span>
+        </div>
+        <p>Turns an epub into a chaptered audiobook. Gemini TTS does the narration; voice conversion against a single reference clip then anchors the timbre, so the voice stops changing every time the model starts a new generation. It ships with the measured research behind it: engine defects, blind listening rounds, and the fixes that improved the numbers while sounding worse.</p>
+        <div class="cardlinks"><a href="https://github.com/jiru-labs/epub2audiobook/blob/main/FINDINGS.md">Findings</a><a href="https://github.com/jiru-labs/epub2audiobook">Source</a></div>
+        <div class="tags"><span class="tag">text-to-speech</span><span class="tag">audiobook</span><span class="tag">voice-conversion</span><span class="tag">gemini</span><span class="tag">epub</span></div>
+      </div>
+
+    </div>
+    <p class="soft" style="margin-top:1.3rem; font-size:.96rem">All the code is at <a class="link" href="https://github.com/jiru-labs">github.com/jiru-labs</a>.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Principles</h2>
+    <ul class="plain">
+      <li><b>Privacy-first</b> — local-first, zero telemetry. Nothing phones home unless you opt in.</li>
+      <li><b>Cypherpunk</b> — secrets stay encrypted on your machine; sync is self-hosted or end-to-end encrypted, never someone else's cleartext.</li>
+      <li><b>Open source</b> — permissive licenses (MIT and friends) are welcome; no copyleft required.</li>
+      <li><b>KISS</b> — keep it simple, stupid: one simple way to do each thing.</li>
+    </ul>
+    <p class="soft" style="margin-top:1.1rem; font-size:.96rem">In practice: my tools never impersonate official clients or read other apps' data (browser cookies included), and anything unofficial is documented as unofficial.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Data analysis — Madrid residential market</h2>
+    <p class="soft">I track the residential supply of Madrid and its metropolitan area daily, listing by listing, from the day it is published until it disappears. That series yields figures an average-price report cannot give: <strong>how long each zone actually takes to sell</strong>, <strong>what share of sellers end up cutting the price</strong>, by how much, and how long they wait before doing it.</p>
+    <p class="soft">Time on market is estimated with survival analysis: listings still active are not discarded, they inform the estimate up to the last observed date. That is what avoids the optimistic bias of averaging only what has already sold. Aggregates are cross-checked against the INE's official transaction statistics for the province.</p>
+
+    <div class="figures">
+      <div class="fig"><b>44</b><span>zones covered</span></div>
+      <div class="fig"><b>108,000+</b><span>listings tracked</span></div>
+      <div class="fig"><b>1,205,000+</b><span>price observations</span></div>
+      <div class="fig"><b>May 2026</b><span>series starts</span></div>
+    </div>
+    <p class="asof">Figures as of 1 November 2026.</p>
+
+    <div class="note">Estimates that do not reach sufficient resolution are published as such —“&gt;&nbsp;88&nbsp;days” rather than an invented median— and every figure travels with its margin. A number that cannot carry a decision is worse than no number.</div>
+
+    <p class="soft" style="margin-top:1.5rem; font-size:.96rem">Delivered as a PDF report with the per-zone analysis, plus the working data in Excel. A one-off study over the accumulated history, or a quarterly update.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Contact</h2>
+    <p>To request an extract for a zone, discuss a commission, or anything about the projects: <a class="link" href="mailto:info@jirulabs.com">info@jirulabs.com</a></p>
+    <p class="signature">Madrid, Spain</p>
+  </section>
+
+  <footer>
+    <p>Market reports are produced from publicly accessible property information, transformed and aggregated. They contain no personal data of private sellers in any form.</p>
+    <p>The information is provided for market-analysis purposes and does not constitute investment advice or a recommendation to buy or sell.</p>
+    <p>© 2026 Patricio Llorens · Madrid</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
