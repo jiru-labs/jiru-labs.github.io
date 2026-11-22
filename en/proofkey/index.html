@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101113" media="(prefers-color-scheme: dark)">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>ProofKey — Private Grammarly alternative with your own API key</title>
@@ -30,21 +32,24 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"ProofKey","url":"https://jirulabs.com/en/proofkey/","description":"Private, free and open-source Chrome extension: inline grammar checking and rewrites, sent only to the AI provider you configure with your own key, or to a local model. No backend, no account, no telemetry.","inLanguage":"en","applicationCategory":"BrowserApplication","operatingSystem":"Chrome","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"license":"https://opensource.org/licenses/MIT","installUrl":"https://chromewebstore.google.com/detail/loibjoemoahkajjnfioajcibcamhdafc","downloadUrl":"https://chromewebstore.google.com/detail/loibjoemoahkajjnfioajcibcamhdafc","sameAs":["https://chromewebstore.google.com/detail/loibjoemoahkajjnfioajcibcamhdafc","https://github.com/jiru-labs/proofkey"],"image":"https://jirulabs.com/proofkey-icon-512.png","screenshot":["https://jirulabs.com/proofkey-screenshot-1.png","https://jirulabs.com/proofkey-screenshot-2.png","https://jirulabs.com/proofkey-screenshot-3.png","https://jirulabs.com/proofkey-screenshot-4.png"],"publisher":{"@type":"Organization","@id":"https://jirulabs.com/#org","name":"Jiru Labs","url":"https://jirulabs.com/"}}</script>
 <style>
   :root {
-    --bg:#fbfaf8; --surface:#ffffff; --ink:#16171a; --ink-soft:#55585f; --ink-faint:#8b8f97;
+    --bg:#fbfaf8; --surface:#ffffff; --ink:#16171a; --ink-soft:#55585f; --ink-faint:#686c73;
     --rule:#e4e2dd; --accent:#1f5f4f; --accent-soft:#eef3f1; --chip:#f2f1ed; --code:#f5f4f0;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg:#101113; --surface:#17181b; --ink:#ecedf0; --ink-soft:#a9adb5; --ink-faint:#74787f;
+      --bg:#101113; --surface:#17181b; --ink:#ecedf0; --ink-soft:#a9adb5; --ink-faint:#8a8e96;
       --rule:#2a2c31; --accent:#6fbfa5; --accent-soft:#16211e; --chip:#1e2024; --code:#1b1d21;
     }
   }
   :root[data-theme="dark"] {
-    --bg:#101113; --surface:#17181b; --ink:#ecedf0; --ink-soft:#a9adb5; --ink-faint:#74787f;
+    --bg:#101113; --surface:#17181b; --ink:#ecedf0; --ink-soft:#a9adb5; --ink-faint:#8a8e96;
     --rule:#2a2c31; --accent:#6fbfa5; --accent-soft:#16211e; --chip:#1e2024; --code:#1b1d21;
   }
 
   * { box-sizing: border-box; }
+  :focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior:auto !important; } }
+  html { scroll-behavior:smooth; }
   html { -webkit-text-size-adjust: 100%; }
   body {
     margin:0; background:var(--bg); color:var(--ink);
@@ -63,11 +68,11 @@
   .lang {
     font:400 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
     color:var(--ink-faint); text-decoration:none; letter-spacing:.06em;
-    border-bottom:1px solid var(--rule); padding-bottom:2px;
+    border-bottom:1px solid var(--rule); padding:.5rem 0 3px;
   }
   .lang:hover { color:var(--accent); border-bottom-color:var(--accent); }
   .tools { display:inline-flex; align-items:center; gap:.9rem; }
-  .gh { display:inline-flex; color:var(--ink-faint); padding:.2rem; border-radius:4px; }
+  .gh { display:inline-flex; color:var(--ink-faint); padding:.3rem; border-radius:4px; }
   .gh:hover, .gh:focus-visible { color:var(--accent); }
   .gh svg { width:18px; height:18px; }
 
@@ -87,7 +92,7 @@
   p:last-child { margin-bottom:0; }
   .soft { color:var(--ink-soft); }
 
-  .projects { display:grid; gap:1rem; }
+  .projects { display:grid; grid-template-columns:minmax(0,1fr); gap:1rem; }
   .card { background:var(--surface); border:1px solid var(--rule); border-radius:11px; padding:1.3rem 1.4rem; }
   .card-top { display:flex; flex-wrap:wrap; align-items:baseline; gap:.6rem; margin-bottom:.5rem; }
   .card h3 { margin:0; font-size:1.04rem; font-weight:600; }
@@ -124,7 +129,7 @@
     margin-top:.95rem; display:flex; flex-wrap:wrap; gap:1.1rem;
     font:500 .85rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
   }
-  .cardlinks a { color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; }
+  .cardlinks a { color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; padding:.45rem 0 .2rem; }
   .cardlinks a:hover { border-bottom-color:var(--accent); }
 
   .tags { margin-top:.9rem; display:flex; flex-wrap:wrap; gap:.35rem; }
@@ -192,7 +197,7 @@
   ul.plain li, ol.plain li { margin:0 0 .6rem; color:var(--ink-soft); }
   .kv { margin:0 0 1.1rem; }
   .kv b { font:600 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:.4rem; }
-  .crumb { font:400 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; color:var(--ink-faint); text-decoration:none; }
+  .crumb { font:400 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif; color:var(--ink-faint); text-decoration:none; display:inline-block; padding:.45rem 0; }
   .crumb:hover { color:var(--accent); }
 </style>
 </head>
