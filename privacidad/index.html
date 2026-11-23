@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#101113" media="(prefers-color-scheme: dark)">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; media-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Política de privacidad — Asistente de oficina</title>
 <meta name="description" content="Qué datos de Google usa el Asistente de oficina, para qué, dónde se guardan y con quién se comparten.">
@@ -15,20 +15,29 @@
 <link rel="alternate icon" href="/favicon.ico" sizes="32x32">
 <style>
   :root {
-    --bg:#fbfaf8; --surface:#ffffff; --ink:#16171a; --ink-soft:#55585f; --ink-faint:#686c73;
-    --rule:#e4e2dd; --accent:#1f5f4f; --accent-soft:#eef3f1; --chip:#f2f1ed; --code:#f5f4f0;
+    --bg:#f6f2ea; --surface:#fffcf7; --ink:#1c1a17; --ink-soft:#4d4943; --ink-faint:#666158;
+    --rule:#e3dbcd; --accent:#1f5f4f; --accent-soft:#e8efe9; --chip:#eee8dc; --code:#f1ece2;
+    --terra:#a8452a; --ochre:#9a6a17; --line:#1f5f4f; --on-accent:#ffffff;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg:#101113; --surface:#17181b; --ink:#ecedf0; --ink-soft:#a9adb5; --ink-faint:#8a8e96;
-      --rule:#2a2c31; --accent:#6fbfa5; --accent-soft:#16211e; --chip:#1e2024; --code:#1b1d21;
+      --bg:#131416; --surface:#1a1b1e; --ink:#eeeae3; --ink-soft:#b6b0a6; --ink-faint:#958f85;
+      --rule:#2d2e32; --accent:#79c4aa; --accent-soft:#16221e; --chip:#232428; --code:#1e1f23;
+      --terra:#e58b67; --ochre:#d6a446; --line:#79c4aa; --on-accent:#0f1f1a;
     }
   }
   :root[data-theme="dark"] {
-    --bg:#101113; --surface:#17181b; --ink:#ecedf0; --ink-soft:#a9adb5; --ink-faint:#8a8e96;
-    --rule:#2a2c31; --accent:#6fbfa5; --accent-soft:#16211e; --chip:#1e2024; --code:#1b1d21;
+    --bg:#131416; --surface:#1a1b1e; --ink:#eeeae3; --ink-soft:#b6b0a6; --ink-faint:#958f85;
+    --rule:#2d2e32; --accent:#79c4aa; --accent-soft:#16221e; --chip:#232428; --code:#1e1f23;
+    --terra:#e58b67; --ochre:#d6a446; --line:#79c4aa; --on-accent:#0f1f1a;
   }
 
+  @font-face {
+    font-family:"Fraunces"; src:url("/fraunces.woff2") format("woff2");
+    font-weight:300 700; font-style:normal; font-display:swap;
+  }
+  :root { --display:"Fraunces", ui-serif, Georgia, serif; }
+  ::selection { background:color-mix(in srgb, var(--terra) 22%, transparent); }
   * { box-sizing: border-box; }
   :focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
   @media (prefers-reduced-motion: reduce) { * { scroll-behavior:auto !important; } }
@@ -44,8 +53,8 @@
   header { padding:4.5rem 0 0; }
   .topbar { display:flex; align-items:baseline; justify-content:space-between; gap:1rem; }
   .brand {
-    font:600 1.05rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
-    letter-spacing:.14em; text-transform:uppercase;
+    font:600 1.35rem/1 var(--display); letter-spacing:0;
+    font-variation-settings:"opsz" 36;
   }
   .brand span { color:var(--accent); }
   .lang {
@@ -59,9 +68,22 @@
   .gh:hover, .gh:focus-visible { color:var(--accent); }
   .gh svg { width:18px; height:18px; }
 
+  .hero { display:grid; grid-template-columns:minmax(0,1fr); align-items:start; }
+  .contours {
+    display:block; width:100%; height:8.5rem; margin-top:2rem;
+    -webkit-mask-image:radial-gradient(closest-side, #000 62%, transparent);
+    mask-image:radial-gradient(closest-side, #000 62%, transparent);
+  }
+  .contours path { fill:none; vector-effect:non-scaling-stroke; }
+  .contours .lv { stroke:var(--line); stroke-width:1; opacity:.5; }
+  .contours .peak { stroke:var(--terra); stroke-width:1.4; }
+  @media (min-width: 52rem) {
+    .hero { grid-template-columns:minmax(0,1fr) 15rem; gap:2.5rem; }
+    .contours { height:17rem; margin-top:2.6rem; }
+  }
   h1 {
-    margin:2.5rem 0 0; font-size:clamp(1.65rem,5vw,2.2rem); line-height:1.24;
-    font-weight:500; letter-spacing:-.012em; max-width:26ch;
+    margin:2.5rem 0 0; font:460 clamp(1.95rem,5.6vw,2.7rem)/1.15 var(--display);
+    letter-spacing:-.004em; max-width:21ch; font-variation-settings:"opsz" 60;
   }
   .lede { margin:1.15rem 0 0; font-size:1.07rem; color:var(--ink-soft); max-width:62ch; }
 
@@ -70,15 +92,20 @@
   h2 {
     font:600 .78rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
     letter-spacing:.13em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 1.5rem;
+    display:flex; align-items:center; gap:.7rem;
   }
+  h2::before { content:""; width:1.4rem; height:2px; background:var(--terra); border-radius:1px; flex:none; }
   p { margin:0 0 1.1rem; }
   p:last-child { margin-bottom:0; }
   .soft { color:var(--ink-soft); }
 
   .projects { display:grid; grid-template-columns:minmax(0,1fr); gap:1rem; }
-  .card { background:var(--surface); border:1px solid var(--rule); border-radius:11px; padding:1.3rem 1.4rem; }
+  .card {
+    background:var(--surface); border:1px solid var(--rule); border-radius:11px;
+    padding:1.3rem 1.4rem 1.3rem 1.6rem; box-shadow:inset 4px 0 0 var(--hue, var(--rule));
+  }
   .card-top { display:flex; flex-wrap:wrap; align-items:baseline; gap:.6rem; margin-bottom:.5rem; }
-  .card h3 { margin:0; font-size:1.04rem; font-weight:600; }
+  .card h3 { margin:0; font:600 1.3rem/1.2 var(--display); letter-spacing:-.01em; font-variation-settings:"opsz" 36; }
   .meta {
     font:400 .76rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
     color:var(--ink-faint); letter-spacing:.02em;
@@ -104,7 +131,7 @@
   pre.install::before {
     content:"$"; color:var(--ink-faint); margin-right:.55rem; user-select:none;
   }
-  .warn {
+  .card .warn {
     margin:.8rem 0 0; font:400 .79rem/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
     color:var(--ink-faint); border-left:2px solid var(--rule); padding-left:.8rem;
   }
@@ -128,8 +155,8 @@
   }
   .fig { background:var(--surface); padding:1.2rem 1.1rem; }
   .fig b {
-    display:block; font:600 1.45rem/1.1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
-    letter-spacing:-.02em; font-variant-numeric:tabular-nums;
+    display:block; font:500 1.75rem/1.1 var(--display); color:var(--accent);
+    letter-spacing:-.02em; font-variant-numeric:tabular-nums lining-nums; font-variation-settings:"opsz" 72;
   }
   .fig span {
     display:block; margin-top:.35rem;
@@ -168,7 +195,7 @@
     font:500 .92rem/1 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
     border:1px solid var(--rule); color:var(--ink);
   }
-  .cta a.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .cta a.primary { background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
   .cta a:hover { border-color:var(--accent); }
   .demo { margin:2.4rem 0 0; }
   .demo img, .demo video {
