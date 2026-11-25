@@ -57,6 +57,11 @@
   ::selection { background:color-mix(in srgb, var(--terra) 22%, transparent); }
   * { box-sizing: border-box; }
   :focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
+  /* House floor: keyboard users skip the header; invisible until focused. */
+  .skip { position:absolute; left:1rem; top:-4rem; z-index:10; padding:.5rem .9rem;
+          background:var(--accent); color:var(--on-accent); border-radius:4px; text-decoration:none; }
+  .skip:focus { top:1rem; }
+  @media (forced-colors: active) { :focus-visible { outline-color:Highlight; } }
   @media (prefers-reduced-motion: reduce) { * { scroll-behavior:auto !important; } }
   html { scroll-behavior:smooth; }
   html { -webkit-text-size-adjust: 100%; }
@@ -253,6 +258,7 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <div class="wrap">
 
@@ -280,6 +286,8 @@
       <p>Recorded against the shipped code with canned corrections, so no key was involved. On a real site the suggestions come from the model you chose.</p>
     </div>
   </header>
+
+  <main id="main">
 
   <hr class="rule">
 
@@ -356,6 +364,8 @@
     <p class="soft">If it breaks for you, an issue is far more useful than a comment: <a class="link" href="https://github.com/jiru-labs/proofkey/issues">GitHub Issues</a></p>
     <p class="signature">MIT licence. Built by Jiru Labs in Madrid.</p>
   </section>
+
+  </main>
 
   <footer>
     <p>© 2026 Jiru Labs · Madrid</p>

@@ -40,6 +40,11 @@
   ::selection { background:color-mix(in srgb, var(--terra) 22%, transparent); }
   * { box-sizing: border-box; }
   :focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
+  /* House floor: keyboard users skip the header; invisible until focused. */
+  .skip { position:absolute; left:1rem; top:-4rem; z-index:10; padding:.5rem .9rem;
+          background:var(--accent); color:var(--on-accent); border-radius:4px; text-decoration:none; }
+  .skip:focus { top:1rem; }
+  @media (forced-colors: active) { :focus-visible { outline-color:Highlight; } }
   @media (prefers-reduced-motion: reduce) { * { scroll-behavior:auto !important; } }
   html { scroll-behavior:smooth; }
   html { -webkit-text-size-adjust: 100%; }
@@ -236,6 +241,7 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <div class="wrap">
 
@@ -244,6 +250,8 @@
       <a class="crumb" href="/en/proofkey/">ProofKey /</a>
     </div>
   </header>
+
+  <main id="main">
 
   <section class="policy">
 <!-- from https://github.com/jiru-labs/proofkey/blob/17fbb1d/PRIVACY.md -->
@@ -431,6 +439,8 @@ policy than trust it, the code is at
 
     <p class="soft">The same text, with its history: <a class="link" href="https://github.com/jiru-labs/proofkey/blob/main/PRIVACY.md">PRIVACY.md on GitHub</a>.</p>
   </section>
+
+  </main>
 
   <footer>
     <p>© 2026 Jiru Labs · Madrid</p>

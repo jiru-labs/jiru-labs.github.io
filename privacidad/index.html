@@ -40,6 +40,11 @@
   ::selection { background:color-mix(in srgb, var(--terra) 22%, transparent); }
   * { box-sizing: border-box; }
   :focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
+  /* House floor: keyboard users skip the header; invisible until focused. */
+  .skip { position:absolute; left:1rem; top:-4rem; z-index:10; padding:.5rem .9rem;
+          background:var(--accent); color:var(--on-accent); border-radius:4px; text-decoration:none; }
+  .skip:focus { top:1rem; }
+  @media (forced-colors: active) { :focus-visible { outline-color:Highlight; } }
   @media (prefers-reduced-motion: reduce) { * { scroll-behavior:auto !important; } }
   html { scroll-behavior:smooth; }
   html { -webkit-text-size-adjust: 100%; }
@@ -236,6 +241,7 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Saltar al contenido</a>
 
 <div class="wrap">
 
@@ -244,6 +250,8 @@
       <a class="crumb" href="/">jirulabs.com /</a>
     </div>
   </header>
+
+  <main id="main">
 
   <section class="policy">
 <!-- Política de privacidad de «Asistente de oficina» (app OAuth de Google). Texto mínimo, 19-11-2026. -->
@@ -266,6 +274,8 @@
 <p>Puedes pedir acceso, rectificación, supresión, oposición, limitación o portabilidad escribiendo a <a class="link" href="mailto:info@jirulabs.com">info@jirulabs.com</a>, y reclamar ante la <a class="link" href="https://www.aepd.es">Agencia Española de Protección de Datos</a>.</p>
 
   </section>
+
+  </main>
 
   <footer>
     <p>© 2026 Jiru Labs · Madrid</p>

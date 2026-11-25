@@ -38,6 +38,11 @@
   ::selection { background:color-mix(in srgb, var(--terra) 22%, transparent); }
   * { box-sizing: border-box; }
   :focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
+  /* House floor: keyboard users skip the header; invisible until focused. */
+  .skip { position:absolute; left:1rem; top:-4rem; z-index:10; padding:.5rem .9rem;
+          background:var(--accent); color:var(--on-accent); border-radius:4px; text-decoration:none; }
+  .skip:focus { top:1rem; }
+  @media (forced-colors: active) { :focus-visible { outline-color:Highlight; } }
   @media (prefers-reduced-motion: reduce) { * { scroll-behavior:auto !important; } }
   html { scroll-behavior:smooth; }
   html { -webkit-text-size-adjust: 100%; }
@@ -234,6 +239,7 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Saltar al contenido</a>
 
 <div class="wrap">
 
@@ -247,6 +253,10 @@
     <p class="lede" lang="en">This page does not exist. The address may be mistyped, or the page has moved.
       <a class="link" href="/en/">Go to the home page</a> · <a class="link" href="/en/proofkey/">ProofKey</a></p>
   </header>
+
+  <main id="main">
+
+  </main>
 
   <footer>
     <p>© 2026 Jiru Labs · Madrid</p>
