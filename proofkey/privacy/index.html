@@ -180,6 +180,11 @@
     border-bottom:1px solid color-mix(in srgb, var(--accent) 35%, transparent); font-weight:500;
   }
   a.link:hover { border-bottom-color:var(--accent); }
+  /* Links inside the rendered policy markdown carry no class: same look as a.link, and
+     never the browser's default blue, which is 1.96:1 on the dark background. */
+  .policy a:not([class]) { color:var(--accent); text-decoration:none;
+    border-bottom:1px solid color-mix(in srgb, var(--accent) 35%, transparent); font-weight:500; }
+  .policy a:not([class]):hover { border-bottom-color:var(--accent); }
   .signature { margin-top:1.1rem; font-size:.96rem; color:var(--ink-faint); }
 
   footer {
